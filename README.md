@@ -1,4 +1,4 @@
-# How To Train Your Dragon — The RPG 🐉
+# Alyssa's HTTYD RPG 🐉
 
 A single-page, browser-based RPG set in the *How To Train Your Dragon* universe,
 built with **React** and **Vite**. Originally authored as a Claude Artifact, it

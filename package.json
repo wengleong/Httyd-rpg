@@ -1,8 +1,8 @@
 {
-  "name": "httyd-rpg",
+  "name": "alyssas-httyd-rpg",
   "private": true,
   "version": "1.0.0",
-  "description": "How To Train Your Dragon — a browser RPG built with React + Vite.",
+  "description": "Alyssa's HTTYD RPG — a browser How To Train Your Dragon RPG built with React + Vite.",
   "type": "module",
   "scripts": {
     "dev": "vite",
