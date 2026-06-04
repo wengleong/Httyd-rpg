@@ -4,4 +4,7 @@ import react from "@vitejs/plugin-react";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  // Relative base so the build works under any GitHub Pages project path
+  // (e.g. https://<user>.github.io/<repo>/) and survives repo renames.
+  base: "./",
 });
