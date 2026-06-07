@@ -1,43 +1,44 @@
 import { useState, useEffect, useRef } from "react";
+import { DRAGON_IMAGES } from "./assetManifest.js";
 
 // ============================================================
 // DATA
 // ============================================================
 const STARTER_DRAGONS = [
   {
-    id: "gronckle",
-    name: "Gronckle",
+    id: "cindermaw",
+    name: "Cindermaw",
     emoji: "🪨",
-    class: "Boulder Class",
+    class: "Ember Class",
     rarity: "Common",
-    color: "#8B6914",
-    description: "Slow but incredibly tough. A lava-blasting tank that hits like a boulder. Loyal beyond measure.",
+    color: "#B5651D",
+    description: "A boulder-bodied drake that smelts swallowed stone and spits molten slag. Slow, immovable, and fiercely devoted.",
     stats: { hp: 120, attack: 35, defense: 50, speed: 20 },
-    ability: "Lava Blast",
-    bg: "from-yellow-900 to-stone-800"
+    ability: "Magma Cough",
+    bg: "from-amber-900 to-stone-800"
   },
   {
-    id: "nadder",
-    name: "Deadly Nadder",
+    id: "quilldart",
+    name: "Quilldart",
     emoji: "🌟",
-    class: "Tracker Class",
+    class: "Galewing Class",
     rarity: "Common",
-    color: "#1E90FF",
-    description: "Fast, beautiful, and razor-sharp. Shoots magnesium-heated spines. Vain but fiercely loyal.",
+    color: "#2E8BC0",
+    description: "Sleek and vain, it launches superheated quills from its tail in a glittering volley. The fastest wings in the Reach.",
     stats: { hp: 90, attack: 55, defense: 35, speed: 70 },
-    ability: "Spine Shot",
-    bg: "from-blue-900 to-cyan-800"
+    ability: "Quill Volley",
+    bg: "from-sky-900 to-cyan-800"
   },
   {
-    id: "nightmare",
-    name: "Monstrous Nightmare",
+    id: "pyrewing",
+    name: "Pyrewing",
     emoji: "🔥",
-    class: "Stoker Class",
+    class: "Blaze Class",
     rarity: "Common",
-    color: "#DC143C",
-    description: "The largest and most aggressive of the common dragons. Sets itself on fire. Pure chaos.",
+    color: "#C0392B",
+    description: "The largest of the common drakes — it wreathes itself in living flame and charges headlong. All fury, all heart.",
     stats: { hp: 100, attack: 65, defense: 30, speed: 50 },
-    ability: "Fire Jacket",
+    ability: "Ashen Roar",
     bg: "from-red-900 to-orange-800"
   }
 ];
@@ -108,7 +109,7 @@ const HUMAN_ARMOR = [
   { id: "plate_armor",      name: "Plate Armour",        emoji: "🛡️", defense: 20, hpBonus: 35, speed: -5, tier: 3, description: "Full iron plate. You won't feel a thing. You also won't run." },
   { id: "dragon_scale_mail",name: "Dragon Scale Mail",   emoji: "🐉", defense: 30, hpBonus: 50, speed: 0,  tier: 4, description: "Armour woven from shed dragon scales. Light and nearly impenetrable.", legendary: true },
   { id: "night_fury_cloak", name: "Night Fury Cloak",    emoji: "🖤", defense: 25, hpBonus: 40, speed: 10, tier: 4, description: "A gift from a bonded Night Fury. Absorbs impact and boosts agility.", legendary: true },
-  { id: "berkian_chief_armor", name: "Berkian Chief Armour", emoji: "👑", defense: 35, hpBonus: 60, speed: -3, tier: 5, description: "Stoick's own armour, passed to the worthy. Inspires all who see it.", legendary: true },
+  { id: "berkian_chief_armor", name: "Holtgardian Chief Armour", emoji: "👑", defense: 35, hpBonus: 60, speed: -3, tier: 5, description: "Haldor's own armour, passed to the worthy. Inspires all who see it.", legendary: true },
 ];
 
 // ── DRAGON ARMOR ──
@@ -121,8 +122,8 @@ const DRAGON_ARMOR = [
 ];
 
 const LOCATIONS = [
-  { id: "berk",             name: "Berk",                        emoji: "🏔️", minLevel: 1,  description: "Your home island. Chief Stoick's domain.",                                    characters: ["Hiccup", "Astrid", "Stoick", "Gobber", "Gothi"], enemies: ["Outcast Raider", "Dragon Hunter Scout"] },
-  { id: "dragons_edge",     name: "Dragon's Edge",               emoji: "🌊", minLevel: 1,  description: "The edge outpost. Base of operations.",                                        characters: ["Hiccup", "Astrid", "Fishlegs", "Snotlout", "Ruffnut", "Tuffnut"], enemies: ["Dragon Hunter Scout", "Dragon Hunter Warrior"] },
+  { id: "berk",             name: "Holtgard",                        emoji: "🏔️", minLevel: 1,  description: "Your home island. Chief Haldor's domain.",                                    characters: ["Rurik", "Sigrun", "Haldor", "Gobber", "Gothi"], enemies: ["Outcast Raider", "Dragon Hunter Scout"] },
+  { id: "dragons_edge",     name: "Stormwatch Spire",               emoji: "🌊", minLevel: 1,  description: "The edge outpost. Base of operations.",                                        characters: ["Rurik", "Sigrun", "Fishlegs", "Snotlout", "Ruffnut", "Tuffnut"], enemies: ["Dragon Hunter Scout", "Dragon Hunter Warrior"] },
   { id: "glacier_island",   name: "Glacier Island",              emoji: "🧊", minLevel: 5,  description: "A frozen wasteland. Snow Wraiths lurk here.",                                  characters: [], enemies: ["Snow Wraith", "Dragon Hunter Scout"] },
   { id: "berserker_island", name: "Berserker Island",            emoji: "⚡", minLevel: 10, description: "Home of Dagur the Deranged.",                                                  characters: ["Dagur", "Heather"], enemies: ["Dragon Hunter Warrior", "Hunter Captain"] },
   { id: "defenders_wing",   name: "Defenders of the Wing Island",emoji: "🌺", minLevel: 15, description: "Home of Mala and her people.",                                                  characters: ["Mala"], enemies: ["Dragon Hunter Warrior", "Viggo's Elite Guard"] },
@@ -134,9 +135,9 @@ const LOCATIONS = [
 ];
 
 const CHARACTERS = {
-  Hiccup: { emoji: "🦾", lines: ["I say we fight smart, not hard.", "Every dragon has a story — you just need to listen.", "Nice flying out there. Seriously.", "The best riders aren't the strongest. They're the ones who understand their dragons."] },
-  Astrid: { emoji: "⚔️", lines: ["Your form is sloppy. I've seen Snotlout fly better. Almost.", "A true rider never gives up on their dragon.", "You want to be great? Train harder.", "Next time, lead with the barrel roll."] },
-  Stoick: { emoji: "👑", lines: ["There will always be a Berk. And as long as there is, we Vikings will stand.", "A chief protects his own.", "You've made Berk proud today.", "The mark of a true chief is knowing when to listen."] },
+  Rurik: { emoji: "🦾", lines: ["I say we fight smart, not hard.", "Every dragon has a story — you just need to listen.", "Nice flying out there. Seriously.", "The best riders aren't the strongest. They're the ones who understand their dragons."] },
+  Sigrun: { emoji: "⚔️", lines: ["Your form is sloppy. I've seen Snotlout fly better. Almost.", "A true rider never gives up on their dragon.", "You want to be great? Train harder.", "Next time, lead with the barrel roll."] },
+  Haldor: { emoji: "👑", lines: ["There will always be a Holtgard. And as long as there is, we Vikings will stand.", "A chief protects his own.", "You've made Holtgard proud today.", "The mark of a true chief is knowing when to listen."] },
   Gobber: { emoji: "🔧", lines: ["I once lost a hand, a leg, and my dignity all in the same week. Tuesdays, am I right?", "You'll want to get that wing-joint checked — I've seen worse, but not much.", "Come back in one piece. Or pieces. I can work with pieces.", "That dragon looks hungry. Also, you look hungry."], isGobber: true },
   Gothi: { emoji: "👵", lines: ["..."], isGothi: true },
   Fishlegs: { emoji: "📚", lines: ["Did you know Gronckles can eat rocks? Multiple kinds! It changes their fire composition!", "I've cross-referenced your dragon's stats and... impressive, actually.", "The Dragon Eye has an entry on this island. Fascinating.", "Don't tell Snotlout I said this, but your dragon is objectively superior."] },
@@ -146,7 +147,7 @@ const CHARACTERS = {
   Mala: { emoji: "🌺", lines: ["The Eruptodon protects us. We protect the Eruptodon. Balance in all things.", "You have proven yourself worthy of Defenders' trust. Do not squander it.", "Our island does not welcome the weak of spirit.", "The dragons choose their riders. Remember that always."] },
   Viggo: { emoji: "♟️", lines: ["You play the game well. But I play it better.", "Every move has a consequence. Have you considered yours?", "I admire your persistence. Truly. It will make your defeat more satisfying.", "The dragon trade is merely business. Don't take it personally.", "Maces and Talons — a game of strategy, patience, and sacrifice. Much like dragon hunting, wouldn't you say?", "In Maces and Talons, every piece has a purpose. Even the ones you lose.", "You remind me of a Maces and Talons player who relies on aggression over intellect. Predictable. Beatable.", "The Maces represent brute force. The Talons, precision and cunning. I have always preferred the Talons.", "I once played Maces and Talons for three days straight. My opponent wept. I consider that a win.", "Would you care for a game of Maces and Talons? I promise to make your defeat... educational."] },
   Krogan: { emoji: "🦅", lines: ["The Singetails obey me. You would be wise to follow their example.", "Viggo thinks in chess pieces. I think in armies.", "You've come far. That ends here.", "I've broken stronger riders than you."] },
-  Johann: { emoji: "🐍", lines: ["Oh, Master Hiccup! What a delight to see you! I bring only the finest goods... and information.", "You know, I've always admired dragon riders. Truly. No ulterior motive whatsoever.", "Trade is the foundation of trust, wouldn't you say? ...Don't look at me like that.", "Every story has two sides. Mine simply has... more profit in it.", "I have been so grossly misunderstood. I am but a humble trader.", "The King of Dragons? Oh yes, I know exactly where it is. For a price.", "You're sharper than you look. That's... inconvenient.", "Loyalty is just a currency, dear rider. And mine goes to the highest bidder."] },
+  Johann: { emoji: "🐍", lines: ["Oh, Master Rurik! What a delight to see you! I bring only the finest goods... and information.", "You know, I've always admired dragon riders. Truly. No ulterior motive whatsoever.", "Trade is the foundation of trust, wouldn't you say? ...Don't look at me like that.", "Every story has two sides. Mine simply has... more profit in it.", "I have been so grossly misunderstood. I am but a humble trader.", "The King of Dragons? Oh yes, I know exactly where it is. For a price.", "You're sharper than you look. That's... inconvenient.", "Loyalty is just a currency, dear rider. And mine goes to the highest bidder."] },
   Ryker: { emoji: "💢", lines: ["My brother plays chess. I prefer more... direct solutions.", "You really thought you could sail into my waters?", "Viggo deals in strategy. I deal in pain. Guess which one you're getting.", "Every rider who's crossed me regrets it. Briefly.", "I don't negotiate. I don't debate. I hit things until they stop moving.", "You're brave. I'll give you that. Brave and stupid.", "The dragons will be caged. All of them. Starting with yours."] },
   Ruffnut: { emoji: "👱‍♀️", lines: ["Barf is the best head. Don't tell Tuffnut.", "We're not twins. We're the same person. A better person.", "Last time someone underestimated me, they regretted it. For about five seconds."] },
   Tuffnut: { emoji: "👱‍♂️", lines: ["Belch is clearly the superior head. The science is irrefutable.", "I have a plan. Ruffnut hates it. Therefore it's good.", "Chickens. That's all I'll say. Chickens."] },
@@ -195,7 +196,7 @@ const GOTHI_TRANSLATIONS = [
   { runes: "ᚦᚢ ᛞᚱᛖᚲᚨ ᛖᚱ ᛊᛏᚱᚨᚾᚷᚱ", real: "Your dragon is strong and well-bonded to you.", gobber: "She says your dragon smells like old fish and could stand to lose a few pounds. Her words, not mine." },
   { runes: "ᚾᛖᛋᛏᚨ ᛒᛖᛏᚱ", real: "Rest is the best medicine.", gobber: "Gothi says you should wrestle a Terrible Terror to build character. Also something about soup." },
   { runes: "ᚠᚨᚱᛁ ᛗᛖᛞ ᚺᚢᚷᚱ", real: "Be careful with care.", gobber: "She's saying the dragon needs more vegetables in its diet. Possibly also you. Look, I'm doing my best here." },
-  { runes: "ᛞᚢ ᛖᚱᛏ ᛊᛏᛖᚱᚲ", real: "You are brave and resilient.", gobber: "Gothi says you remind her of a young Stoick. That's either a compliment or a warning. Fifty-fifty, really." },
+  { runes: "ᛞᚢ ᛖᚱᛏ ᛊᛏᛖᚱᚲ", real: "You are brave and resilient.", gobber: "Gothi says you remind her of a young Haldor. That's either a compliment or a warning. Fifty-fifty, really." },
   { runes: "ᚷᚱᛖᛁᚾ ᚨ ᛞᚱᛖᚲᚨ", real: "Heal your dragon with rest and patience.", gobber: "Right, so she definitely said something about your dragon needing rest, but she also drew what I think is a yak? She's very expressive." },
   { runes: "ᛏᚱᚢᛊᛏ ᛏᚺᛁᚾ ᛒᛟᚾᛞ", real: "Trust the bond between you.", gobber: "She says the two of you are destined for great things. OR she's asking if you've seen her walking stick. It was definitely one of those." },
 ];
@@ -215,37 +216,37 @@ const QUESTS = [
   {
     id: "first_flight",
     title: "First Flight",
-    giver: "Hiccup",
+    giver: "Rurik",
     giverEmoji: "🦾",
     location: "berk",
     minLevel: 1,
-    description: "Hiccup wants to see you bond with your dragon. Take to the skies and go for a ride.",
+    description: "Rurik wants to see you bond with your dragon. Take to the skies and go for a ride.",
     objectives: [{ id: "ride", label: "Ride your dragon", type: "ride", count: 1, progress: 0 }],
     reward: { xp: 40, gold: 20, item: null },
     rewardText: "+40 XP, +20g",
-    flavour: "\"Every rider starts somewhere. Go on — trust them.\" — Hiccup",
+    flavour: "\"Every rider starts somewhere. Go on — trust them.\" — Rurik",
   },
   {
     id: "hunter_threat",
     title: "Hunter Threat",
-    giver: "Astrid",
+    giver: "Sigrun",
     giverEmoji: "⚔️",
     location: "dragons_edge",
     minLevel: 1,
-    description: "Dragon Hunters have been spotted near the Edge. Astrid wants you to drive them off.",
+    description: "Dragon Hunters have been spotted near the Edge. Sigrun wants you to drive them off.",
     objectives: [{ id: "kill_hunters", label: "Defeat Dragon Hunters", type: "kill", target: "Dragon Hunter Scout", count: 3, progress: 0 }],
     reward: { xp: 80, gold: 40, item: "crossbow" },
     rewardText: "+80 XP, +40g, Crossbow",
-    flavour: "\"They're getting bolder. Make them regret it.\" — Astrid",
+    flavour: "\"They're getting bolder. Make them regret it.\" — Sigrun",
   },
   {
     id: "berkS_finest",
-    title: "Berk's Finest",
+    title: "Holtgard's Finest",
     giver: "Gobber",
     giverEmoji: "🔧",
     location: "berk",
     minLevel: 2,
-    description: "Gobber needs you to clear out some Outcast Raiders threatening Berk's shores. Something about his good prosthetic arm.",
+    description: "Gobber needs you to clear out some Outcast Raiders threatening Holtgard's shores. Something about his good prosthetic arm.",
     objectives: [{ id: "kill_outcasts", label: "Defeat Outcast Raiders", type: "kill", target: "Outcast Raider", count: 3, progress: 0 }],
     reward: { xp: 70, gold: 35, item: "axe" },
     rewardText: "+70 XP, +35g, Axe",
@@ -313,18 +314,18 @@ const QUESTS = [
   {
     id: "johanns_secret",
     title: "Something Fishy",
-    giver: "Hiccup",
+    giver: "Rurik",
     giverEmoji: "🦾",
     location: "dragons_edge",
     minLevel: 8,
-    description: "Hiccup is suspicious of Johann — his trade routes don't add up. Visit his ship and investigate. If your suspicions are confirmed... deal with it.",
+    description: "Rurik is suspicious of Johann — his trade routes don't add up. Visit his ship and investigate. If your suspicions are confirmed... deal with it.",
     objectives: [
       { id: "visit_ship", label: "Visit Johann's Trading Post", type: "visit", target: "johanns_ship", count: 1, progress: 0 },
       { id: "expose_johann", label: "Defeat Trader Johann (Traitor)", type: "kill", target: "Trader Johann (Traitor)", count: 1, progress: 0 },
     ],
     reward: { xp: 250, gold: 130, item: "viggos_sword_1" },
     rewardText: "+250 XP, +130g, Viggo's Sword I",
-    flavour: "\"I wanted to be wrong about him. I wasn't.\" — Hiccup",
+    flavour: "\"I wanted to be wrong about him. I wasn't.\" — Rurik",
   },
   // ── LATE GAME ──
   {
@@ -346,7 +347,7 @@ const QUESTS = [
   {
     id: "endgame_viggo",
     title: "Checkmate",
-    giver: "Hiccup",
+    giver: "Rurik",
     giverEmoji: "🦾",
     location: "dragons_edge",
     minLevel: 30,
@@ -372,8 +373,8 @@ const PROTECTED_AREAS = [
     id: "the_rookery",
     name: "The Rookery",
     emoji: "🪺",
-    description: "A towering sea stack riddled with nesting caves. Protected by an ancient agreement between Berk and the wild dragons.",
-    lore: "Gobber accidentally discovered it. Stoick declared it off-limits to hunters under penalty of banishment. The rule still holds.",
+    description: "A towering sea stack riddled with nesting caves. Protected by an ancient agreement between Holtgard and the wild dragons.",
+    lore: "Gobber accidentally discovered it. Haldor declared it off-limits to hunters under penalty of banishment. The rule still holds.",
     minLevel: 1,
     capacity: 25,
     preferredClasses: ["Stoker Class", "Boulder Class", "Tidal Class"],
@@ -417,7 +418,7 @@ const PROTECTED_AREAS = [
     name: "Hidden World Entrance",
     emoji: "🌀",
     description: "A shimmering sea cave leading toward the Hidden World — where dragons are truly free. Only the most bonded riders know this place exists.",
-    lore: "Toothless first showed Hiccup the entrance. The bioluminescent tunnels stretch for miles. Dragons released here are believed to reach the Hidden World itself.",
+    lore: "Toothless first showed Rurik the entrance. The bioluminescent tunnels stretch for miles. Dragons released here are believed to reach the Hidden World itself.",
     minLevel: 20,
     capacity: 12,
     preferredClasses: ["Strike Class"],
@@ -705,7 +706,7 @@ export default function HTTYD_RPG() {
     setCurrentBase("berk");
     setCurrentLocation("berk");
     addLog(`🐉 ${dragon.nickname} the ${dragon.name} hatched! Your adventure begins.`, "success");
-    addLog(`📍 You start at Berk. Talk to Hiccup, explore, or find your first fight.`, "info");
+    addLog(`📍 You start at Holtgard. Talk to Rurik, explore, or find your first fight.`, "info");
     setScreen("game");
   }
 
@@ -2540,6 +2541,126 @@ function DragonPortrait({ dragonId, size = 80, rarity }) {
 
   const portraits = {
 
+    // ── ORIGINAL STARTER DRAKES (The Sundered Reach) ──
+    cindermaw: (id) => (
+      <g>
+        {defs(id)}
+        {/* stubby ember wings */}
+        <ellipse cx="24" cy="60" rx="13" ry="7" fill="#5b3a12" transform="rotate(-25 24 60)" opacity="0.9"/>
+        <ellipse cx="76" cy="60" rx="13" ry="7" fill="#5b3a12" transform="rotate(25 76 60)" opacity="0.9"/>
+        {/* body */}
+        <ellipse cx="50" cy="66" rx="27" ry="19" fill="#7a4e1a"/>
+        <ellipse cx="50" cy="66" rx="27" ry="19" fill={`url(#bodygrad${id})`}/>
+        {/* rocky back plates */}
+        {[0,1,2,3,4].map(i=><ellipse key={i} cx={30+i*10} cy={52} rx="5" ry="4" fill="#4a3210" opacity="0.85"/>)}
+        {/* molten lava cracks */}
+        <path d="M36 64 L41 58 L45 64 L50 56 L54 64" stroke="#ff7a18" strokeWidth="1.6" fill="none" opacity="0.7"/>
+        <path d="M56 66 L61 60 L65 67" stroke="#ff5500" strokeWidth="1.4" fill="none" opacity="0.6"/>
+        {/* neck + head */}
+        <ellipse cx="50" cy="50" rx="14" ry="10" fill="#8a5a1e"/>
+        <ellipse cx="50" cy="39" rx="17" ry="14" fill="#9a6a22"/>
+        <ellipse cx="50" cy="39" rx="17" ry="14" fill={`url(#bodygrad${id})`}/>
+        {/* brow ridge */}
+        <path d="M36 33 Q50 29 64 33" stroke="#4a3210" strokeWidth="3" fill="none" strokeLinecap="round"/>
+        {/* snout + nostrils */}
+        <ellipse cx="50" cy="46" rx="10" ry="6" fill="#8a5a1e"/>
+        <ellipse cx="46" cy="48" rx="3" ry="2" fill="#3a2408" opacity="0.7"/>
+        <ellipse cx="54" cy="48" rx="3" ry="2" fill="#3a2408" opacity="0.7"/>
+        {/* molten throat glow */}
+        <ellipse cx="50" cy="50" rx="8" ry="3" fill="#ff7a18" opacity="0.3" filter={`url(#softglow${id})`}/>
+        {/* eyes */}
+        <circle cx="42" cy="36" r="5" fill="#2a1800"/>
+        <circle cx="58" cy="36" r="5" fill="#2a1800"/>
+        <circle cx="42" cy="36" r="3.5" fill="#ff8c1a"/>
+        <circle cx="58" cy="36" r="3.5" fill="#ff8c1a"/>
+        <circle cx="42" cy="36" r="1.8" fill="#1a0d00" filter={`url(#glow${id})`}/>
+        <circle cx="58" cy="36" r="1.8" fill="#1a0d00" filter={`url(#glow${id})`}/>
+        <circle cx="43" cy="35" r="0.9" fill="white"/>
+        <circle cx="59" cy="35" r="0.9" fill="white"/>
+      </g>
+    ),
+
+    quilldart: (id) => (
+      <g>
+        {defs(id)}
+        {/* swept wings */}
+        <path d="M50 55 L14 30 L23 60 Z" fill="#16557e" opacity="0.9"/>
+        <path d="M50 55 L86 30 L77 60 Z" fill="#16557e" opacity="0.9"/>
+        <line x1="50" y1="55" x2="14" y2="30" stroke="#0c3a5a" strokeWidth="1" opacity="0.6"/>
+        {/* gold tail-quill fan */}
+        <path d="M50 72 Q63 78 70 73" stroke="#2a6fa0" strokeWidth="5" fill="none" strokeLinecap="round"/>
+        {[0,1,2,3].map(i=>(
+          <path key={i} d={`M${64+i*4} ${74-i*3} L${70+i*5} ${66-i*5}`} stroke="#f5b800" strokeWidth="2" strokeLinecap="round"/>
+        ))}
+        {/* body */}
+        <ellipse cx="50" cy="63" rx="18" ry="14" fill="#2378ad"/>
+        <ellipse cx="50" cy="63" rx="18" ry="14" fill={`url(#bodygrad${id})`}/>
+        {/* scale rows */}
+        {[0,1,2].map(r => [0,1,2,3].map(c =>
+          <ellipse key={r*4+c} cx={37+c*8+(r%2)*4} cy={56+r*5} rx="3" ry="2" fill="#155a86" opacity="0.4"/>
+        ))}
+        {/* neck + head */}
+        <path d="M42 52 Q50 44 58 52" stroke="#2378ad" strokeWidth="8" fill="none" strokeLinecap="round"/>
+        <ellipse cx="50" cy="38" rx="13" ry="12" fill="#2e85c0"/>
+        <ellipse cx="50" cy="38" rx="13" ry="12" fill={`url(#bodygrad${id})`}/>
+        {/* gold head spines */}
+        {[0,1,2,3].map(i=>(
+          <path key={i} d={`M${42+i*5} 30 L${41+i*5} 22 L${44+i*5} 29`} fill="#f5b800" opacity="0.9"/>
+        ))}
+        {/* snout */}
+        <path d="M42 43 Q50 48 58 43" fill="#2378ad"/>
+        <ellipse cx="50" cy="44" rx="6" ry="3" fill="#155a86"/>
+        {/* eyes */}
+        <circle cx="43" cy="36" r="5" fill="#0a2030"/>
+        <circle cx="57" cy="36" r="5" fill="#0a2030"/>
+        <circle cx="43" cy="36" r="3.5" fill="#4fc3f7" filter={`url(#glow${id})`}/>
+        <circle cx="57" cy="36" r="3.5" fill="#4fc3f7" filter={`url(#glow${id})`}/>
+        <circle cx="43" cy="36" r="1.8" fill="#04202e"/>
+        <circle cx="57" cy="36" r="1.8" fill="#04202e"/>
+        <circle cx="42" cy="35" r="1" fill="white" opacity="0.9"/>
+        <circle cx="56" cy="35" r="1" fill="white" opacity="0.9"/>
+      </g>
+    ),
+
+    pyrewing: (id) => (
+      <g>
+        {defs(id)}
+        {/* flame aura */}
+        <ellipse cx="50" cy="60" rx="30" ry="22" fill="#ff4400" opacity="0.1" filter={`url(#softglow${id})`}/>
+        {/* wings */}
+        <path d="M50 58 L9 25 L19 62 Z" fill="#7a1208" opacity="0.9"/>
+        <path d="M50 58 L91 25 L81 62 Z" fill="#7a1208" opacity="0.9"/>
+        <path d="M50 58 L19 47" stroke="#4a0a04" strokeWidth="1" opacity="0.5"/>
+        {/* tail + flame tip */}
+        <path d="M50 74 Q70 84 78 75 Q84 66 74 60" stroke="#b5281a" strokeWidth="6" fill="none" strokeLinecap="round"/>
+        <path d="M74 60 L80 54 L72 62" fill="#ff6a18" opacity="0.85"/>
+        {/* body */}
+        <ellipse cx="50" cy="64" rx="20" ry="15" fill="#b22a18"/>
+        <ellipse cx="50" cy="64" rx="20" ry="15" fill={`url(#bodygrad${id})`}/>
+        <ellipse cx="50" cy="68" rx="14" ry="8" fill="#ff4400" opacity="0.2"/>
+        {/* neck + head */}
+        <path d="M40 52 Q50 42 60 52" stroke="#c0392b" strokeWidth="10" fill="none" strokeLinecap="round"/>
+        <ellipse cx="50" cy="37" rx="15" ry="13" fill="#c0392b"/>
+        <ellipse cx="50" cy="37" rx="15" ry="13" fill={`url(#bodygrad${id})`}/>
+        {/* horns */}
+        <path d="M42 28 L37 18 L45 27" fill="#ff6a18"/>
+        <path d="M50 27 L50 17 L54 26" fill="#ff6a18"/>
+        <path d="M58 28 L63 18 L55 27" fill="#ff6a18"/>
+        {/* snout */}
+        <path d="M40 43 Q50 50 60 43" fill="#992414"/>
+        <ellipse cx="50" cy="44" rx="8" ry="4" fill="#7a1c0e"/>
+        {/* eyes */}
+        <circle cx="42" cy="34" r="5.5" fill="#1a0500"/>
+        <circle cx="58" cy="34" r="5.5" fill="#1a0500"/>
+        <circle cx="42" cy="34" r="4" fill="#ff7a18" filter={`url(#glow${id})`}/>
+        <circle cx="58" cy="34" r="4" fill="#ff7a18" filter={`url(#glow${id})`}/>
+        <ellipse cx="42" cy="34" rx="2" ry="3" fill="#1a0500"/>
+        <ellipse cx="58" cy="34" rx="2" ry="3" fill="#1a0500"/>
+        <circle cx="41" cy="33" r="1.2" fill="white" opacity="0.8"/>
+        <circle cx="57" cy="33" r="1.2" fill="white" opacity="0.8"/>
+      </g>
+    ),
+
     gronckle: (id) => (
       <g>
         {defs(id)}
@@ -3324,6 +3445,22 @@ function DragonPortrait({ dragonId, size = 80, rarity }) {
   const key = dragonId?.replace(/_egg$/, "").replace(/_egg$/, "");
   const renderFn = portraits[key] || portraits[dragonId] || fallback;
   const id = (dragonId || "fb").replace(/[^a-zA-Z0-9]/g, "_");
+
+  // Prefer original raster art when present in src/assets/dragons/;
+  // otherwise fall back to the built-in SVG portrait below.
+  const rasterSrc = DRAGON_IMAGES[dragonId] || DRAGON_IMAGES[key];
+  if (rasterSrc) {
+    return (
+      <img
+        src={rasterSrc}
+        alt=""
+        width={s}
+        height={s}
+        loading="lazy"
+        style={{ display: "block", width: s, height: s, objectFit: "contain" }}
+      />
+    );
+  }
 
   return (
     <svg width={s} height={s} viewBox="0 0 100 100" style={{ display: "block" }}>
