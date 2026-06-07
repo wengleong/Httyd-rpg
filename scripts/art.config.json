@@ -1,19 +1,19 @@
 {
   "_comment": "Subjects + prompts for programmatic art generation. Add new ids here as you de-brand more content (see docs/WORLD_BIBLE.md). Filenames map to in-game ids; the runtime auto-discovers them via src/assetManifest.js.",
-  "style": "Painterly storybook fantasy illustration, hand-painted texture, dramatic single-source rim lighting, misty atmosphere, deep teal and navy palette with warm ember-gold highlights, cohesive game art, no text, no watermark, original creature design that does not resemble any existing franchise",
+  "style": "Bright, warm, friendly fantasy creature art with a semi-realistic, highly detailed render; soft natural daylight, vibrant cheerful colours, gentle approachable expression; clean readable silhouette on a simple soft light background; polished cohesive game art; no text, no watermark; original creature design that does not resemble any existing franchise",
   "dragons": {
     "size": "1024x1024",
     "subjects": {
-      "cindermaw": "3/4 portrait bust of a stocky boulder-bodied drake with cracked obsidian hide glowing with molten lava seams, rocky armoured back plates, short heavy wings, amber eyes",
-      "quilldart": "3/4 portrait bust of a sleek azure drake with a fan of glittering gold tail-quills and swept-back head spines, lean aerodynamic build, bright cyan eyes",
-      "pyrewing": "3/4 portrait bust of a fierce crimson drake wreathed in living flame, curved horns, broad wings mid-roar, glowing orange eyes"
+      "cindermaw": "friendly 3/4 portrait of a stocky, sturdy boulder-bodied drake with warm earthy-amber scaly hide and softly glowing golden seams, rounded rocky back plates, short sturdy wings, big warm amber eyes, gentle happy expression",
+      "quilldart": "friendly 3/4 portrait of a sleek bright-azure drake with a colourful fan of golden tail-quills and tidy swept-back head spines, lean graceful build, big bright cyan eyes, cheerful expression",
+      "pyrewing": "friendly 3/4 portrait of a spirited warm-crimson drake with a soft glowing orange underglow (not on fire), gently curved horns, broad open wings, big friendly orange eyes, playful expression"
     }
   },
   "locations": {
     "size": "1536x1024",
     "subjects": {
-      "berk": "wide cinematic establishing shot of a rugged cliffside harbour town (Holtgard) at dusk, longhouses and watchfires above a grey northern sea, no characters",
-      "dragons_edge": "wide cinematic establishing shot of a lonely sea-stack outpost (Stormwatch Spire) wreathed in storm clouds, wooden platforms ringing a tall rock spire, no characters"
+      "berk": "wide cinematic establishing shot of a cosy cliffside harbour town (Holtgard) in warm golden morning light, longhouses and gentle chimney smoke above a bright blue sea, clear friendly sky, no characters",
+      "dragons_edge": "wide cinematic establishing shot of a sea-stack outpost (Stormwatch Spire) in bright soft daylight with light fluffy clouds, wooden platforms ringing a tall rock spire, calm blue sea, no characters"
     }
   }
 }
