@@ -1,0 +1,66 @@
+name: Generate art
+
+# Manually triggered. Generates missing (or all) art assets via the image API,
+# commits them to main, and lets the Deploy workflow redeploy automatically.
+#
+# Requires a repository secret OPENAI_API_KEY (or swap providers via ART_PROVIDER
+# and the matching secret in scripts/generate-art.mjs).
+on:
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Regenerate assets that already exist"
+        type: boolean
+        default: false
+      only:
+        description: "Generate a single id only (e.g. cindermaw). Leave blank for all."
+        type: string
+        default: ""
+
+permissions:
+  contents: write
+
+# Don't overlap with another art run.
+concurrency:
+  group: generate-art
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install generator deps
+        # Only sharp is required; the generator calls the image API over fetch.
+        run: npm install --no-save sharp
+
+      - name: Generate art
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          # Pass dispatch inputs via env (avoids inline expression injection).
+          ART_FORCE: ${{ inputs.force }}
+          ART_ONLY: ${{ inputs.only }}
+        run: |
+          args=""
+          [ "$ART_FORCE" = "true" ] && args="$args --force"
+          [ -n "$ART_ONLY" ] && args="$args --only=$ART_ONLY"
+          node scripts/generate-art.mjs $args
+
+      - name: Commit new assets
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [ -n "$(git status --porcelain src/assets)" ]; then
+            git add src/assets
+            git commit -m "chore(art): generate assets via Generate art workflow"
+            git push
+          else
+            echo "No new or changed assets — nothing to commit."
+          fi

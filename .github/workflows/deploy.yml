@@ -4,6 +4,12 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  # Redeploy after "Generate art" commits new assets (GITHUB_TOKEN pushes
+  # don't re-trigger `push`, so chain explicitly via workflow_run).
+  workflow_run:
+    workflows: ["Generate art"]
+    types: [completed]
+    branches: [main]
 
 # Permissions required for the GitHub Pages deployment.
 permissions:
