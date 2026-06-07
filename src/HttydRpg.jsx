@@ -118,11 +118,11 @@ const DRAGON_ARMOR = [
   { id: "iron_scale_plates",   name: "Iron Scale Plates",     emoji: "🔩", defenseBonus: 18, hpBonus: 25, speedPenalty: 5,  tier: 2, description: "Iron plates riveted over the most exposed areas." },
   { id: "full_dragon_armor",   name: "Full Dragon Armour",    emoji: "🛡️", defenseBonus: 28, hpBonus: 40, speedPenalty: 10, tier: 3, description: "Complete iron-and-leather body armour for a dragon." },
   { id: "dragonite_plating",   name: "Dragonite Plating",     emoji: "💎", defenseBonus: 40, hpBonus: 55, speedPenalty: 5,  tier: 4, description: "Rare dragonite ore plates. Harder than steel, lighter than iron.", legendary: true },
-  { id: "titanwing_harness",   name: "Titanwing Harness",     emoji: "👑", defenseBonus: 50, hpBonus: 70, speedPenalty: 0,  tier: 5, description: "Forged by Gobber for a Titanwing. The pinnacle of dragon protection.", legendary: true },
+  { id: "titanwing_harness",   name: "Titanwing Harness",     emoji: "👑", defenseBonus: 50, hpBonus: 70, speedPenalty: 0,  tier: 5, description: "Forged by Grott for a Titanwing. The pinnacle of dragon protection.", legendary: true },
 ];
 
 const LOCATIONS = [
-  { id: "berk",             name: "Holtgard",                        emoji: "🏔️", minLevel: 1,  description: "Your home island. Chief Haldor's domain.",                                    characters: ["Rurik", "Sigrun", "Haldor", "Gobber", "Gothi"], enemies: ["Outcast Raider", "Dragon Hunter Scout"] },
+  { id: "berk",             name: "Holtgard",                        emoji: "🏔️", minLevel: 1,  description: "Your home island. Chief Haldor's domain.",                                    characters: ["Rurik", "Sigrun", "Haldor", "Grott", "Moith"], enemies: ["Outcast Raider", "Dragon Hunter Scout"] },
   { id: "dragons_edge",     name: "Stormwatch Spire",               emoji: "🌊", minLevel: 1,  description: "The edge outpost. Base of operations.",                                        characters: ["Rurik", "Sigrun", "Fishlegs", "Snotlout", "Ruffnut", "Tuffnut"], enemies: ["Dragon Hunter Scout", "Dragon Hunter Warrior"] },
   { id: "glacier_island",   name: "Glacier Island",              emoji: "🧊", minLevel: 5,  description: "A frozen wasteland. Snow Wraiths lurk here.",                                  characters: [], enemies: ["Snow Wraith", "Dragon Hunter Scout"] },
   { id: "berserker_island", name: "Berserker Island",            emoji: "⚡", minLevel: 10, description: "Home of Dagur the Deranged.",                                                  characters: ["Dagur", "Heather"], enemies: ["Dragon Hunter Warrior", "Hunter Captain"] },
@@ -138,8 +138,8 @@ const CHARACTERS = {
   Rurik: { emoji: "🦾", lines: ["I say we fight smart, not hard.", "Every dragon has a story — you just need to listen.", "Nice flying out there. Seriously.", "The best riders aren't the strongest. They're the ones who understand their dragons."] },
   Sigrun: { emoji: "⚔️", lines: ["Your form is sloppy. I've seen Snotlout fly better. Almost.", "A true rider never gives up on their dragon.", "You want to be great? Train harder.", "Next time, lead with the barrel roll."] },
   Haldor: { emoji: "👑", lines: ["There will always be a Holtgard. And as long as there is, we Vikings will stand.", "A chief protects his own.", "You've made Holtgard proud today.", "The mark of a true chief is knowing when to listen."] },
-  Gobber: { emoji: "🔧", lines: ["I once lost a hand, a leg, and my dignity all in the same week. Tuesdays, am I right?", "You'll want to get that wing-joint checked — I've seen worse, but not much.", "Come back in one piece. Or pieces. I can work with pieces.", "That dragon looks hungry. Also, you look hungry."], isGobber: true },
-  Gothi: { emoji: "👵", lines: ["..."], isGothi: true },
+  Grott: { emoji: "🔧", lines: ["I once lost a hand, a leg, and my dignity all in the same week. Tuesdays, am I right?", "You'll want to get that wing-joint checked — I've seen worse, but not much.", "Come back in one piece. Or pieces. I can work with pieces.", "That dragon looks hungry. Also, you look hungry."], isGrott: true },
+  Moith: { emoji: "👵", lines: ["..."], isMoith: true },
   Fishlegs: { emoji: "📚", lines: ["Did you know Gronckles can eat rocks? Multiple kinds! It changes their fire composition!", "I've cross-referenced your dragon's stats and... impressive, actually.", "The Dragon Eye has an entry on this island. Fascinating.", "Don't tell Snotlout I said this, but your dragon is objectively superior."] },
   Snotlout: { emoji: "💪", lines: ["Let me guess — you want to be as great as me. Understandable.", "Hookfang and I could have handled that. We were just letting you have the win.", "Snotlout! Snotlout! Oi! Oi! Oi!", "I'm not impressed. I'm just... mildly interested."] },
   Dagur: { emoji: "😜", lines: ["GLORIOUS! The chaos! The fire! I love it!", "You know, I used to want to destroy dragons. Now I just want to BE one. Relatable.", "My sister says you're decent. High praise from Heather.", "Let's battle! Or be friends! Both options excite me equally!"] },
@@ -191,20 +191,20 @@ const RARITY_COLORS = {
   Titanwing: "#f0f0ff",
 };
 
-// Gothi writes in runes — Gobber translates (badly)
-const GOTHI_TRANSLATIONS = [
+// Moith writes in runes — Grott translates (badly)
+const MOITH_TRANSLATIONS = [
   { runes: "ᚦᚢ ᛞᚱᛖᚲᚨ ᛖᚱ ᛊᛏᚱᚨᚾᚷᚱ", real: "Your dragon is strong and well-bonded to you.", gobber: "She says your dragon smells like old fish and could stand to lose a few pounds. Her words, not mine." },
-  { runes: "ᚾᛖᛋᛏᚨ ᛒᛖᛏᚱ", real: "Rest is the best medicine.", gobber: "Gothi says you should wrestle a Terrible Terror to build character. Also something about soup." },
+  { runes: "ᚾᛖᛋᛏᚨ ᛒᛖᛏᚱ", real: "Rest is the best medicine.", gobber: "Moith says you should wrestle a Terrible Terror to build character. Also something about soup." },
   { runes: "ᚠᚨᚱᛁ ᛗᛖᛞ ᚺᚢᚷᚱ", real: "Be careful with care.", gobber: "She's saying the dragon needs more vegetables in its diet. Possibly also you. Look, I'm doing my best here." },
-  { runes: "ᛞᚢ ᛖᚱᛏ ᛊᛏᛖᚱᚲ", real: "You are brave and resilient.", gobber: "Gothi says you remind her of a young Haldor. That's either a compliment or a warning. Fifty-fifty, really." },
+  { runes: "ᛞᚢ ᛖᚱᛏ ᛊᛏᛖᚱᚲ", real: "You are brave and resilient.", gobber: "Moith says you remind her of a young Haldor. That's either a compliment or a warning. Fifty-fifty, really." },
   { runes: "ᚷᚱᛖᛁᚾ ᚨ ᛞᚱᛖᚲᚨ", real: "Heal your dragon with rest and patience.", gobber: "Right, so she definitely said something about your dragon needing rest, but she also drew what I think is a yak? She's very expressive." },
   { runes: "ᛏᚱᚢᛊᛏ ᛏᚺᛁᚾ ᛒᛟᚾᛞ", real: "Trust the bond between you.", gobber: "She says the two of you are destined for great things. OR she's asking if you've seen her walking stick. It was definitely one of those." },
 ];
 
-const GOBBER_ALONE_LINES = [
-  "You know, I've been translating for Gothi for thirty years and I'm still mostly guessing. Don't tell her.",
+const GROTT_ALONE_LINES = [
+  "You know, I've been translating for Moith for thirty years and I'm still mostly guessing. Don't tell her.",
   "She once told me through runes that she believed in me. Took me a week to figure out. Turns out she was asking for more cod.",
-  "Gothi's runes are technically ancient Norse. I read them as ancient Norse filtered through my own personal interpretation. It's basically the same thing.",
+  "Moith's runes are technically ancient Norse. I read them as ancient Norse filtered through my own personal interpretation. It's basically the same thing.",
   "Last time I mistranslated her, she hit me with her staff. Three times. I think that means she agrees with me.",
 ];
 
@@ -242,31 +242,31 @@ const QUESTS = [
   {
     id: "berkS_finest",
     title: "Holtgard's Finest",
-    giver: "Gobber",
+    giver: "Grott",
     giverEmoji: "🔧",
     location: "berk",
     minLevel: 2,
-    description: "Gobber needs you to clear out some Outcast Raiders threatening Holtgard's shores. Something about his good prosthetic arm.",
+    description: "Grott needs you to clear out some Outcast Raiders threatening Holtgard's shores. Something about his good prosthetic arm.",
     objectives: [{ id: "kill_outcasts", label: "Defeat Outcast Raiders", type: "kill", target: "Outcast Raider", count: 3, progress: 0 }],
     reward: { xp: 70, gold: 35, item: "axe" },
     rewardText: "+70 XP, +35g, Axe",
-    flavour: "\"They knocked over my forge last time. LAST TIME.\" — Gobber",
+    flavour: "\"They knocked over my forge last time. LAST TIME.\" — Grott",
   },
   {
     id: "gothis_remedy",
-    title: "Gothi's Remedy",
-    giver: "Gothi",
+    title: "Moith's Remedy",
+    giver: "Moith",
     giverEmoji: "👵",
     location: "berk",
     minLevel: 3,
-    description: "Gothi's runes suggest she needs you to travel to Glacier Island for rare frost-herbs. (Gobber translates: she wants you to fetch something cold. Probably.)",
+    description: "Moith's runes suggest she needs you to travel to Glacier Island for rare frost-herbs. (Grott translates: she wants you to fetch something cold. Probably.)",
     objectives: [
       { id: "visit_glacier", label: "Travel to Glacier Island", type: "visit", target: "glacier_island", count: 1, progress: 0 },
       { id: "kill_wraith", label: "Defeat a Snow Wraith", type: "kill", target: "Snow Wraith", count: 1, progress: 0 },
     ],
     reward: { xp: 120, gold: 60, item: "sword" },
     rewardText: "+120 XP, +60g, Sword",
-    flavour: "\"...\" — Gothi. \"She says thank you. Or possibly 'your boots are on wrong'.\" — Gobber",
+    flavour: "\"...\" — Moith. \"She says thank you. Or possibly 'your boots are on wrong'.\" — Grott",
   },
   // ── MID GAME ──
   {
@@ -374,7 +374,7 @@ const PROTECTED_AREAS = [
     name: "The Rookery",
     emoji: "🪺",
     description: "A towering sea stack riddled with nesting caves. Protected by an ancient agreement between Holtgard and the wild dragons.",
-    lore: "Gobber accidentally discovered it. Haldor declared it off-limits to hunters under penalty of banishment. The rule still holds.",
+    lore: "Grott accidentally discovered it. Haldor declared it off-limits to hunters under penalty of banishment. The rule still holds.",
     minLevel: 1,
     capacity: 25,
     preferredClasses: ["Stoker Class", "Boulder Class", "Tidal Class"],
@@ -385,7 +385,7 @@ const PROTECTED_AREAS = [
     name: "The Sanctuary",
     emoji: "🏝️",
     description: "A remote, fog-shrouded island no hunter has ever found. Dragons live undisturbed.",
-    lore: "Fishlegs catalogued 47 species here. Gothi blessed it with Elder runes. The Defenders of the Wing patrol its waters from a respectful distance.",
+    lore: "Fishlegs catalogued 47 species here. Moith blessed it with Elder runes. The Defenders of the Wing patrol its waters from a respectful distance.",
     minLevel: 5,
     capacity: 20,
     preferredClasses: ["Boulder Class", "Tidal Class", "Stoker Class"],
@@ -861,25 +861,25 @@ export default function HTTYD_RPG() {
     const char = CHARACTERS[charName];
     if (!char) return;
 
-    // Gothi — opens dragon heal modal
-    if (char.isGothi) {
-      const entry = GOTHI_TRANSLATIONS[Math.floor(Math.random() * GOTHI_TRANSLATIONS.length)];
-      addLog(`👵 Gothi scratches runes in the dirt and points meaningfully at your dragon.`, "dialogue");
+    // Moith — opens dragon heal modal
+    if (char.isMoith) {
+      const entry = MOITH_TRANSLATIONS[Math.floor(Math.random() * MOITH_TRANSLATIONS.length)];
+      addLog(`👵 Moith scratches runes in the dirt and points meaningfully at your dragon.`, "dialogue");
       setModal({ type: "gothi", data: entry });
       return;
     }
 
-    // Gobber — special translation lines + random alone quip
-    if (char.isGobber) {
+    // Grott — special translation lines + random alone quip
+    if (char.isGrott) {
       const useTranslation = Math.random() > 0.4;
       if (useTranslation) {
-        const entry = GOTHI_TRANSLATIONS[Math.floor(Math.random() * GOTHI_TRANSLATIONS.length)];
-        addLog(`🔧 Gobber attempts to translate Gothi's latest message...`, "dialogue");
+        const entry = MOITH_TRANSLATIONS[Math.floor(Math.random() * MOITH_TRANSLATIONS.length)];
+        addLog(`🔧 Grott attempts to translate Moith's latest message...`, "dialogue");
         setModal({ type: "gobber_translate", data: entry });
       } else {
-        const line = GOBBER_ALONE_LINES[Math.floor(Math.random() * GOBBER_ALONE_LINES.length)];
-        addLog(`🔧 Gobber: "${line}"`, "dialogue");
-        setModal({ type: "dialogue", data: { name: "Gobber", emoji: "🔧", line } });
+        const line = GROTT_ALONE_LINES[Math.floor(Math.random() * GROTT_ALONE_LINES.length)];
+        addLog(`🔧 Grott: "${line}"`, "dialogue");
+        setModal({ type: "dialogue", data: { name: "Grott", emoji: "🔧", line } });
       }
       return;
     }
@@ -983,11 +983,11 @@ export default function HTTYD_RPG() {
   }
 
   function gothiHealDragon(dragonIdx) {
-    if (playerGold < 25) { addLog("❌ Gothi's treatment costs 25g.", "error"); setModal(null); return; }
+    if (playerGold < 25) { addLog("❌ Moith's treatment costs 25g.", "error"); setModal(null); return; }
     setPlayerGold(g => g - 25);
     setDragons(prev => prev.map((d, i) => i === dragonIdx ? { ...d, currentHP: d.maxHP || d.stats.hp } : d));
     const name = dragons[dragonIdx]?.nickname || "your dragon";
-    addLog(`👵 Gothi treated ${name}. Fully healed! (-25g)`, "success");
+    addLog(`👵 Moith treated ${name}. Fully healed! (-25g)`, "success");
     spawnHealParticles();
     setModal(null);
   }
@@ -1985,17 +1985,17 @@ export default function HTTYD_RPG() {
             {modal.type === "gothi" && (
               <>
                 <div style={{ fontSize: "48px", marginBottom: "8px" }}>👵</div>
-                <div style={{ fontWeight: "700", fontSize: "18px", marginBottom: "4px" }}>Gothi</div>
-                <div style={{ fontSize: "11px", color: "#4db8ff", letterSpacing: "2px", marginBottom: "16px" }}>ELDER HEALER OF BERK</div>
+                <div style={{ fontWeight: "700", fontSize: "18px", marginBottom: "4px" }}>Moith</div>
+                <div style={{ fontSize: "11px", color: "#4db8ff", letterSpacing: "2px", marginBottom: "16px" }}>ELDER HEALER OF HOLTGARD</div>
                 <div style={{ fontSize: "22px", letterSpacing: "6px", color: "#f59e0b", marginBottom: "8px", fontFamily: "serif" }}>{modal.data.runes}</div>
                 <div style={{ fontSize: "11px", opacity: 0.4, marginBottom: "16px", fontStyle: "italic" }}>(What she actually means: "{modal.data.real}")</div>
                 <div style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,165,0,0.2)", borderRadius: "6px", padding: "12px", marginBottom: "16px" }}>
-                  <div style={{ fontSize: "11px", color: "#f59e0b", letterSpacing: "1px", marginBottom: "6px" }}>🔧 GOBBER'S TRANSLATION:</div>
+                  <div style={{ fontSize: "11px", color: "#f59e0b", letterSpacing: "1px", marginBottom: "6px" }}>🔧 GROTT'S TRANSLATION:</div>
                   <div style={{ fontSize: "13px", fontStyle: "italic", lineHeight: "1.6", opacity: 0.9 }}>"{modal.data.gobber}"</div>
                 </div>
                 {dragons.some(d => d.currentHP < (d.maxHP || d.stats.hp)) ? (
                   <>
-                    <div style={{ fontSize: "12px", opacity: 0.7, marginBottom: "10px" }}>Gothi can heal your injured dragons. (25g each)</div>
+                    <div style={{ fontSize: "12px", opacity: 0.7, marginBottom: "10px" }}>Moith can heal your injured dragons. (25g each)</div>
                     <div style={{ display: "flex", flexDirection: "column", gap: "6px", marginBottom: "12px" }}>
                       {dragons.map((d, i) => d.currentHP < (d.maxHP || d.stats.hp) && (
                         <button key={i} className="btn-sm success" onClick={() => gothiHealDragon(i)}>
@@ -2014,18 +2014,18 @@ export default function HTTYD_RPG() {
             {modal.type === "gobber_translate" && (
               <>
                 <div style={{ fontSize: "48px", marginBottom: "8px" }}>🔧</div>
-                <div style={{ fontWeight: "700", fontSize: "18px", marginBottom: "4px" }}>Gobber</div>
+                <div style={{ fontWeight: "700", fontSize: "18px", marginBottom: "4px" }}>Grott</div>
                 <div style={{ fontSize: "11px", color: "#4db8ff", letterSpacing: "2px", marginBottom: "14px" }}>ATTEMPTING TO TRANSLATE</div>
                 <div style={{ fontSize: "20px", letterSpacing: "4px", color: "#f59e0b", marginBottom: "10px", fontFamily: "serif" }}>{modal.data.runes}</div>
                 <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "6px", padding: "12px", marginBottom: "10px" }}>
-                  <div style={{ fontSize: "11px", opacity: 0.4, letterSpacing: "1px", marginBottom: "4px" }}>WHAT GOTHI WROTE:</div>
+                  <div style={{ fontSize: "11px", opacity: 0.4, letterSpacing: "1px", marginBottom: "4px" }}>WHAT MOITH WROTE:</div>
                   <div style={{ fontSize: "12px", opacity: 0.6, fontStyle: "italic" }}>"{modal.data.real}"</div>
                 </div>
                 <div style={{ background: "rgba(255,165,0,0.07)", border: "1px solid rgba(255,165,0,0.25)", borderRadius: "6px", padding: "12px", marginBottom: "16px" }}>
-                  <div style={{ fontSize: "11px", color: "#f59e0b", letterSpacing: "1px", marginBottom: "6px" }}>🔧 WHAT GOBBER TOLD YOU:</div>
+                  <div style={{ fontSize: "11px", color: "#f59e0b", letterSpacing: "1px", marginBottom: "6px" }}>🔧 WHAT GROTT TOLD YOU:</div>
                   <div style={{ fontSize: "14px", fontStyle: "italic", lineHeight: "1.7" }}>"{modal.data.gobber}"</div>
                 </div>
-                <button className="btn-sm" onClick={() => setModal(null)}>...Right. Thanks, Gobber.</button>
+                <button className="btn-sm" onClick={() => setModal(null)}>...Right. Thanks, Grott.</button>
               </>
             )}
             {modal.type === "hatched" && (() => {
