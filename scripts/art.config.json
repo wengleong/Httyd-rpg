@@ -1,12 +1,51 @@
 {
-  "_comment": "Subjects + prompts for programmatic art generation. Add new ids here as you de-brand more content (see docs/WORLD_BIBLE.md). Filenames map to in-game ids; the runtime auto-discovers them via src/assetManifest.js.",
+  "_comment": "Subjects + prompts for programmatic art generation. Filenames map to in-game ids; the runtime auto-discovers them via src/assetManifest.js. Global 'style' keeps the set cohesive (bright/friendly/realistic).",
   "style": "Bright, warm, friendly fantasy creature art with a semi-realistic, highly detailed render; soft natural daylight, vibrant cheerful colours, gentle approachable expression; clean readable silhouette on a simple soft light background; polished cohesive game art; no text, no watermark; original creature design that does not resemble any existing franchise",
   "dragons": {
     "size": "1024x1024",
     "subjects": {
       "cindermaw": "friendly 3/4 portrait of a stocky, sturdy boulder-bodied drake with warm earthy-amber scaly hide and softly glowing golden seams, rounded rocky back plates, short sturdy wings, big warm amber eyes, gentle happy expression",
       "quilldart": "friendly 3/4 portrait of a sleek bright-azure drake with a colourful fan of golden tail-quills and tidy swept-back head spines, lean graceful build, big bright cyan eyes, cheerful expression",
-      "pyrewing": "friendly 3/4 portrait of a spirited warm-crimson drake with a soft glowing orange underglow (not on fire), gently curved horns, broad open wings, big friendly orange eyes, playful expression"
+      "pyrewing": "friendly 3/4 portrait of a spirited warm-crimson drake with a soft glowing orange underglow (not on fire), gently curved horns, broad open wings, big friendly orange eyes, playful expression",
+
+      "tw_voidwing": "friendly 3/4 portrait of a majestic midnight-black drake with sleek scales and large ear-like flaps, powerful build, big glowing pale-blue eyes, noble gentle expression",
+      "tw_glaciarch": "friendly 3/4 portrait of a colossal pale-blue tidal drake with crystalline ice tusks and frosted scales, big kind eyes, serene majestic expression",
+      "tw_skydancer": "friendly 3/4 portrait of a regal four-winged drake with feather-like teal-and-gold wings folded like a cloak, owlish face, big bright eyes, graceful expression",
+      "tw_magmaback": "friendly 3/4 portrait of a huge sturdy drake armoured in cooled-lava rocky plates glowing with golden cracks, broad friendly face, warm amber eyes",
+      "tw_stormfang": "friendly 3/4 portrait of a violet storm drake with crackling soft-blue energy along its spines, sleek build, bright eyes, spirited expression",
+      "tw_cinderwyrm": "friendly 3/4 portrait of a large orange-red drake with a warm glowing ember mantle along neck and back (not on fire), broad wings, big friendly eyes",
+      "tw_prismscale": "friendly 3/4 portrait of an iridescent rainbow-scaled drake with a shifting colourful sheen and frills, big curious eyes, cheerful expression",
+
+      "voidwing": "friendly 3/4 portrait of a sleek night-black drake with smooth scales and large ear-flaps, big glowing teal eyes, loyal gentle expression",
+      "dawnwing": "friendly 3/4 portrait of a pale pearly-white drake with a soft iridescent sheen, sleek build, big bright sky-blue eyes, serene expression",
+      "frostmonarch": "friendly 3/4 portrait of a large gentle blue-grey tidal drake with small ice crystals and tusks, big kind eyes, calm protective expression",
+
+      "gloomborer": "friendly 3/4 portrait of a sturdy grey-brown burrowing drake with a spiral-ridged drilling snout and a round armoured body, small eyes, determined friendly look",
+      "venomstinger": "friendly 3/4 portrait of a dark-red insectoid drake with a curled scorpion-like tail and sleek armoured plates, big alert eyes, watchful expression",
+      "tideshell": "friendly 3/4 portrait of a teal sea drake carrying a large rounded shell on its back, stubby limbs, big gentle eyes, calm expression",
+
+      "sparkmaw": "friendly 3/4 portrait of a purple-blue drake crackling with little yellow sparks, sleek build, big bright eyes, lively cheerful expression",
+      "galecrest": "friendly 3/4 portrait of a sky-blue drake with large broad wings and a swept head crest, big bright eyes, breezy friendly expression",
+      "gloamglow": "friendly 3/4 portrait of a translucent pale-cyan drake glowing with soft bioluminescent spots, wispy build, big glowing white eyes, dreamy gentle expression",
+      "emberprism": "friendly 3/4 portrait of a red-orange drake with subtle multicolour glints in its scales and frills, big curious eyes, clever cheerful expression",
+      "quakehide": "friendly 3/4 portrait of a round armoured earth-brown drake that can curl like a boulder, thick plated hide, small friendly eyes, sturdy look",
+
+      "bladecoil": "friendly 3/4 portrait of a silver metallic drake with a sleek bladed tail coil and polished scales, big bright eyes, elegant expression",
+      "flarejet": "friendly 3/4 portrait of an orange-brown drake with two small softly-glowing flame-jet vents at its tail tip, streamlined body, big eyes, eager expression",
+      "cyclewing": "friendly 3/4 portrait of a warm-orange drake mid-loop with broad wings and a ring-tipped tail, big bright eyes, playful expression",
+      "lavabelly": "friendly 3/4 portrait of a chunky dark-grey volcanic drake with a softly glowing orange belly and rocky hide, big calm eyes, content expression",
+      "ironhide": "friendly 3/4 portrait of a grey drake plated with patchwork scrap-metal armour, sturdy build, big curious eyes, friendly resourceful look",
+      "lullabel": "friendly 3/4 portrait of a soft lavender drake with delicate frills and a gentle face, big calm eyes, soothing peaceful expression",
+
+      "pebblewing": "friendly 3/4 portrait of a small stout sandy-brown rock drake with a round body and little wings, big cheerful eyes, dependable look",
+      "spritewing": "friendly 3/4 portrait of a bright blue-and-yellow drake with a spiky head crest and tail spines, slender build, big bright eyes, lively expression",
+      "flicker": "friendly 3/4 portrait of a small red-orange drake with a warm soft glow on its skin and little wings, big excited eyes, eager expression",
+      "brookskimmer": "friendly 3/4 portrait of a smooth teal river drake with fin-like wings and a sleek body, big gentle eyes, calm friendly expression",
+      "twinhiss": "friendly 3/4 portrait of a green two-headed drake with two small friendly faces on long necks, big curious eyes, mischievous cheerful expression",
+      "moodscale": "friendly 3/4 portrait of a pastel colour-shifting drake with soft butterfly-like wings, big gentle eyes, serene expression",
+      "tinywing": "friendly 3/4 portrait of a tiny lizard-like drake with an oversized cheeky grin and big eyes, lots of attitude, adorable",
+      "dunewraith": "friendly 3/4 portrait of a sandy desert drake with smooth tan scales and a sleek build, big bright eyes, alert friendly expression",
+      "bloomtrap": "friendly 3/4 portrait of a pink flower-mimic drake with petal-like frills around its face, big sweet eyes, charming playful expression"
     }
   },
   "locations": {
