@@ -27,8 +27,8 @@ flies as its partner, not its master.
 | id | Name | Class | Role | Ability | Look |
 |----|------|-------|------|---------|------|
 | `cindermaw` | **Cindermaw** | Ember | Tank | Magma Cough | Boulder-bodied, amber/brown hide, glowing lava cracks, rocky back-plates, stubby wings |
-| `quilldart` | **Quilldart** | Galewing | Agile | Quill Volley | Sleek azure flier, gold tail-quills, sharp head-spines, fastest in the Reach |
-| `pyrewing` | **Pyrewing** | Blaze | Bruiser | Ashen Roar | Crimson, flame-wreathed, horned, aggressive charger |
+| `quilldart` | **Quilldart** | Razor | Agile | Quill Volley | Sleek azure flier, gold tail-quills, sharp head-spines, fastest in the Reach |
+| `pyrewing` | **Pyrewing** | Ember | Bruiser | Ashen Roar | Crimson, flame-wreathed, horned, aggressive charger |
 
 Lore beats:
 - **Cindermaw** smelts swallowed stone and spits molten slag; slow, immovable,

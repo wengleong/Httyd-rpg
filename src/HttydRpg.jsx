@@ -21,7 +21,7 @@ const STARTER_DRAGONS = [
     id: "quilldart",
     name: "Quilldart",
     emoji: "🌟",
-    class: "Galewing Class",
+    class: "Razor Class",
     rarity: "Common",
     color: "#2E8BC0",
     description: "Sleek and vain, it launches superheated quills from its tail in a glittering volley. The fastest wings in the Reach.",
@@ -33,7 +33,7 @@ const STARTER_DRAGONS = [
     id: "pyrewing",
     name: "Pyrewing",
     emoji: "🔥",
-    class: "Blaze Class",
+    class: "Ember Class",
     rarity: "Common",
     color: "#C0392B",
     description: "The largest of the common drakes — it wreathes itself in living flame and charges headlong. All fury, all heart.",
@@ -45,44 +45,44 @@ const STARTER_DRAGONS = [
 
 const EGG_DRAGONS = [
   // TITANWING — apex, fully-evolved drakes
-  { id: "tw_voidwing",   name: "Titan Voidwing",   emoji: "🖤", rarity: "Titanwing", chance: 0.5, stats: { hp: 160, attack: 110, defense: 85,  speed: 120 }, ability: "Apex Void Surge",  class: "Strike Class",  description: "The apex of the Strike line — a midnight drake whose shockwave dives can split the sky. Fewer than one rider in two hundred ever sees one hatch." },
-  { id: "tw_glaciarch",  name: "Titan Glaciarch",  emoji: "❄️", rarity: "Titanwing", chance: 0.5, stats: { hp: 300, attack: 90,  defense: 130, speed: 25  }, ability: "Glacier Command",  class: "Tidal Class",   description: "A colossal tidal sovereign that breathes living ice and steadies lesser drakes with a single resonant call." },
-  { id: "tw_skydancer",  name: "Titan Skydancer",  emoji: "🌩️", rarity: "Titanwing", chance: 0.5, stats: { hp: 155, attack: 88,  defense: 72,  speed: 105 }, ability: "Gale Vortex",      class: "Sharp Class",   description: "A regal four-winged drake that folds its wings like a cloak and carves cyclones from the wind." },
-  { id: "tw_magmaback",  name: "Titan Magmaback",  emoji: "🪨", rarity: "Titanwing", chance: 0.5, stats: { hp: 190, attack: 82,  defense: 120, speed: 28  }, ability: "Molten Barrage",   class: "Boulder Class", description: "A mountain with wings — its hide is cooled lava that cracks white-hot when it spits molten rock." },
-  { id: "tw_stormfang",  name: "Titan Stormfang",  emoji: "⚡", rarity: "Titanwing", chance: 0.5, stats: { hp: 140, attack: 100, defense: 62,  speed: 110 }, ability: "Tempest Strike",   class: "Strike Class",  description: "It hunts the heart of thunderstorms and hurls the lightning back twice as fierce." },
-  { id: "tw_cinderwyrm", name: "Titan Cinderwyrm", emoji: "🔥", rarity: "Titanwing", chance: 0.5, stats: { hp: 170, attack: 105, defense: 65,  speed: 78  }, ability: "Inferno Mantle",   class: "Stoker Class",  description: "Wreathes its whole body in a roaring mantle of flame and charges headlong into anything." },
-  { id: "tw_prismscale", name: "Titan Prismscale", emoji: "🔴", rarity: "Titanwing", chance: 0.5, stats: { hp: 145, attack: 98,  defense: 58,  speed: 102 }, ability: "Spectrum Barrage", class: "Stoker Class",  description: "Can mimic the fire of any drake it has met, loosing a barrage in every colour at once." },
+  { id: "tw_voidwing",   name: "Titan Voidwing",   emoji: "🖤", rarity: "Titanwing", chance: 0.5, stats: { hp: 160, attack: 110, defense: 85,  speed: 120 }, ability: "Apex Void Surge",  class: "Storm Class",  description: "The apex of the Storm line — a midnight drake whose shockwave dives can split the sky. Fewer than one rider in two hundred ever sees one hatch." },
+  { id: "tw_glaciarch",  name: "Titan Glaciarch",  emoji: "❄️", rarity: "Titanwing", chance: 0.5, stats: { hp: 300, attack: 90,  defense: 130, speed: 25  }, ability: "Glacier Command",  class: "Tide Class",   description: "A colossal tidal sovereign that breathes living ice and steadies lesser drakes with a single resonant call." },
+  { id: "tw_skydancer",  name: "Titan Skydancer",  emoji: "🌩️", rarity: "Titanwing", chance: 0.5, stats: { hp: 155, attack: 88,  defense: 72,  speed: 105 }, ability: "Gale Vortex",      class: "Razor Class",   description: "A regal four-winged drake that folds its wings like a cloak and carves cyclones from the wind." },
+  { id: "tw_magmaback",  name: "Titan Magmaback",  emoji: "🪨", rarity: "Titanwing", chance: 0.5, stats: { hp: 190, attack: 82,  defense: 120, speed: 28  }, ability: "Molten Barrage",   class: "Crag Class", description: "A mountain with wings — its hide is cooled lava that cracks white-hot when it spits molten rock." },
+  { id: "tw_stormfang",  name: "Titan Stormfang",  emoji: "⚡", rarity: "Titanwing", chance: 0.5, stats: { hp: 140, attack: 100, defense: 62,  speed: 110 }, ability: "Tempest Strike",   class: "Storm Class",  description: "It hunts the heart of thunderstorms and hurls the lightning back twice as fierce." },
+  { id: "tw_cinderwyrm", name: "Titan Cinderwyrm", emoji: "🔥", rarity: "Titanwing", chance: 0.5, stats: { hp: 170, attack: 105, defense: 65,  speed: 78  }, ability: "Inferno Mantle",   class: "Ember Class",  description: "Wreathes its whole body in a roaring mantle of flame and charges headlong into anything." },
+  { id: "tw_prismscale", name: "Titan Prismscale", emoji: "🔴", rarity: "Titanwing", chance: 0.5, stats: { hp: 145, attack: 98,  defense: 58,  speed: 102 }, ability: "Spectrum Barrage", class: "Ember Class",  description: "Can mimic the fire of any drake it has met, loosing a barrage in every colour at once." },
   // LEGENDARY
-  { id: "voidwing",     name: "Voidwing",     emoji: "⚫", rarity: "Legendary", chance: 1, stats: { hp: 110, attack: 80, defense: 60, speed: 95  }, ability: "Void Bolt",     class: "Strike Class", description: "A sleek night-black drake of legend — impossibly fast, fiercely loyal, and rarely seen." },
-  { id: "dawnwing",     name: "Dawnwing",     emoji: "⚪", rarity: "Legendary", chance: 1, stats: { hp: 100, attack: 75, defense: 55, speed: 100 }, ability: "Cloaking Dash",  class: "Strike Class", description: "Pale as morning light, it can bend the air around itself and vanish mid-flight." },
-  { id: "frostmonarch", name: "Frostmonarch", emoji: "🏔️", rarity: "Legendary", chance: 1, stats: { hp: 200, attack: 70, defense: 90, speed: 20  }, ability: "Frost Command", class: "Tidal Class",  description: "A gentle giant of the deep that raises walls of ice to shelter those it protects." },
+  { id: "voidwing",     name: "Voidwing",     emoji: "⚫", rarity: "Legendary", chance: 1, stats: { hp: 110, attack: 80, defense: 60, speed: 95  }, ability: "Void Bolt",     class: "Storm Class", description: "A sleek night-black drake of legend — impossibly fast, fiercely loyal, and rarely seen." },
+  { id: "dawnwing",     name: "Dawnwing",     emoji: "⚪", rarity: "Legendary", chance: 1, stats: { hp: 100, attack: 75, defense: 55, speed: 100 }, ability: "Cloaking Dash",  class: "Storm Class", description: "Pale as morning light, it can bend the air around itself and vanish mid-flight." },
+  { id: "frostmonarch", name: "Frostmonarch", emoji: "🏔️", rarity: "Legendary", chance: 1, stats: { hp: 200, attack: 70, defense: 90, speed: 20  }, ability: "Frost Command", class: "Tide Class",  description: "A gentle giant of the deep that raises walls of ice to shelter those it protects." },
   // EPIC
-  { id: "gloomborer",   name: "Gloomborer",   emoji: "💥", rarity: "Epic", chance: 3, stats: { hp: 150, attack: 75, defense: 65, speed: 55 }, ability: "Spiral Drill",  class: "Boulder Class", description: "Tunnels through solid rock in a screaming spiral, erupting where you least expect it." },
-  { id: "venomstinger", name: "Venomstinger", emoji: "🦂", rarity: "Epic", chance: 3, stats: { hp: 130, attack: 85, defense: 50, speed: 70 }, ability: "Venom Strike",  class: "Strike Class",  description: "A scorpion-tailed drake whose sting can fell prey ten times its size. Tames only with great patience." },
-  { id: "tideshell",    name: "Tideshell",    emoji: "🐚", rarity: "Epic", chance: 3, stats: { hp: 180, attack: 65, defense: 85, speed: 30 }, ability: "Bastion Blast", class: "Tidal Class",   description: "Carries a fortress of shell on its back and fires concussive blasts from within it." },
+  { id: "gloomborer",   name: "Gloomborer",   emoji: "💥", rarity: "Epic", chance: 3, stats: { hp: 150, attack: 75, defense: 65, speed: 55 }, ability: "Spiral Drill",  class: "Crag Class", description: "Tunnels through solid rock in a screaming spiral, erupting where you least expect it." },
+  { id: "venomstinger", name: "Venomstinger", emoji: "🦂", rarity: "Epic", chance: 3, stats: { hp: 130, attack: 85, defense: 50, speed: 70 }, ability: "Venom Strike",  class: "Storm Class",  description: "A scorpion-tailed drake whose sting can fell prey ten times its size. Tames only with great patience." },
+  { id: "tideshell",    name: "Tideshell",    emoji: "🐚", rarity: "Epic", chance: 3, stats: { hp: 180, attack: 65, defense: 85, speed: 30 }, ability: "Bastion Blast", class: "Tide Class",   description: "Carries a fortress of shell on its back and fires concussive blasts from within it." },
   // RARE
-  { id: "sparkmaw",   name: "Sparkmaw",   emoji: "⚡", rarity: "Rare", chance: 4, stats: { hp: 95,  attack: 70, defense: 45, speed: 80 }, ability: "Lightning Charge", class: "Strike Class",  description: "Crackles with static and rides storm fronts for the sheer joy of it." },
-  { id: "galecrest",  name: "Galecrest",  emoji: "🌪️", rarity: "Rare", chance: 4, stats: { hp: 105, attack: 60, defense: 50, speed: 75 }, ability: "Wing Cyclone",     class: "Sharp Class",   description: "Beats its broad wings to whip up dust devils and knock foes off their feet." },
-  { id: "gloamglow",  name: "Gloamglow",  emoji: "👻", rarity: "Rare", chance: 4, stats: { hp: 85,  attack: 65, defense: 40, speed: 90 }, ability: "Glowing Mist",     class: "Mystery Class", description: "Drifts on a tide of bioluminescent mist; its soft glow soothes frightened drakes." },
-  { id: "emberprism", name: "Emberprism", emoji: "🔴", rarity: "Rare", chance: 4, stats: { hp: 90,  attack: 72, defense: 38, speed: 78 }, ability: "Multi-Fire",       class: "Stoker Class",  description: "A clever mimic that learns new kinds of fire by watching other drakes." },
-  { id: "quakehide",  name: "Quakehide",  emoji: "🌍", rarity: "Rare", chance: 4, stats: { hp: 130, attack: 60, defense: 80, speed: 30 }, ability: "Rockslide Roll",   class: "Boulder Class", description: "Curls into a boulder and rolls downhill with the force of a small avalanche." },
+  { id: "sparkmaw",   name: "Sparkmaw",   emoji: "⚡", rarity: "Rare", chance: 4, stats: { hp: 95,  attack: 70, defense: 45, speed: 80 }, ability: "Lightning Charge", class: "Storm Class",  description: "Crackles with static and rides storm fronts for the sheer joy of it." },
+  { id: "galecrest",  name: "Galecrest",  emoji: "🌪️", rarity: "Rare", chance: 4, stats: { hp: 105, attack: 60, defense: 50, speed: 75 }, ability: "Wing Cyclone",     class: "Razor Class",   description: "Beats its broad wings to whip up dust devils and knock foes off their feet." },
+  { id: "gloamglow",  name: "Gloamglow",  emoji: "👻", rarity: "Rare", chance: 4, stats: { hp: 85,  attack: 65, defense: 40, speed: 90 }, ability: "Glowing Mist",     class: "Mystic Class", description: "Drifts on a tide of bioluminescent mist; its soft glow soothes frightened drakes." },
+  { id: "emberprism", name: "Emberprism", emoji: "🔴", rarity: "Rare", chance: 4, stats: { hp: 90,  attack: 72, defense: 38, speed: 78 }, ability: "Multi-Fire",       class: "Ember Class",  description: "A clever mimic that learns new kinds of fire by watching other drakes." },
+  { id: "quakehide",  name: "Quakehide",  emoji: "🌍", rarity: "Rare", chance: 4, stats: { hp: 130, attack: 60, defense: 80, speed: 30 }, ability: "Rockslide Roll",   class: "Crag Class", description: "Curls into a boulder and rolls downhill with the force of a small avalanche." },
   // UNCOMMON
-  { id: "bladecoil", name: "Bladecoil", emoji: "🔪", rarity: "Uncommon", chance: 5, stats: { hp: 85,  attack: 65, defense: 55, speed: 70 }, ability: "Tail Slash",      class: "Sharp Class",   description: "Its tail is a coil of razor scales it sheds and regrows like polished steel." },
-  { id: "flarejet",  name: "Flarejet",  emoji: "🌋", rarity: "Uncommon", chance: 5, stats: { hp: 100, attack: 60, defense: 40, speed: 60 }, ability: "Jet Stream Fire", class: "Stoker Class",  description: "Vents twin jets of flame from its tail to rocket low across the water." },
-  { id: "cyclewing", name: "Cyclewing", emoji: "🌀", rarity: "Uncommon", chance: 5, stats: { hp: 90,  attack: 58, defense: 38, speed: 65 }, ability: "Ring of Fire",    class: "Stoker Class",  description: "Loops in tight circles to leave burning rings hanging in the air behind it." },
-  { id: "lavabelly", name: "Lavabelly", emoji: "🌋", rarity: "Uncommon", chance: 5, stats: { hp: 120, attack: 50, defense: 70, speed: 35 }, ability: "Lava Spit",       class: "Boulder Class", description: "Grazes on volcanic rock and keeps a belly of molten stone to spit at threats." },
-  { id: "ironhide",  name: "Ironhide",  emoji: "🛡️", rarity: "Uncommon", chance: 5, stats: { hp: 110, attack: 52, defense: 80, speed: 45 }, ability: "Metal Plating",   class: "Mystery Class", description: "Scavenges scrap metal and fuses it into living armour over its scales." },
-  { id: "lullabel",  name: "Lullabel",  emoji: "🎶", rarity: "Uncommon", chance: 5, stats: { hp: 80,  attack: 62, defense: 35, speed: 85 }, ability: "Siren Song",      class: "Mystery Class", description: "Hums a haunting melody that lulls other creatures gently to sleep." },
+  { id: "bladecoil", name: "Bladecoil", emoji: "🔪", rarity: "Uncommon", chance: 5, stats: { hp: 85,  attack: 65, defense: 55, speed: 70 }, ability: "Tail Slash",      class: "Razor Class",   description: "Its tail is a coil of razor scales it sheds and regrows like polished steel." },
+  { id: "flarejet",  name: "Flarejet",  emoji: "🌋", rarity: "Uncommon", chance: 5, stats: { hp: 100, attack: 60, defense: 40, speed: 60 }, ability: "Jet Stream Fire", class: "Ember Class",  description: "Vents twin jets of flame from its tail to rocket low across the water." },
+  { id: "cyclewing", name: "Cyclewing", emoji: "🌀", rarity: "Uncommon", chance: 5, stats: { hp: 90,  attack: 58, defense: 38, speed: 65 }, ability: "Ring of Fire",    class: "Ember Class",  description: "Loops in tight circles to leave burning rings hanging in the air behind it." },
+  { id: "lavabelly", name: "Lavabelly", emoji: "🌋", rarity: "Uncommon", chance: 5, stats: { hp: 120, attack: 50, defense: 70, speed: 35 }, ability: "Lava Spit",       class: "Crag Class", description: "Grazes on volcanic rock and keeps a belly of molten stone to spit at threats." },
+  { id: "ironhide",  name: "Ironhide",  emoji: "🛡️", rarity: "Uncommon", chance: 5, stats: { hp: 110, attack: 52, defense: 80, speed: 45 }, ability: "Metal Plating",   class: "Mystic Class", description: "Scavenges scrap metal and fuses it into living armour over its scales." },
+  { id: "lullabel",  name: "Lullabel",  emoji: "🎶", rarity: "Uncommon", chance: 5, stats: { hp: 80,  attack: 62, defense: 35, speed: 85 }, ability: "Siren Song",      class: "Mystic Class", description: "Hums a haunting melody that lulls other creatures gently to sleep." },
   // COMMON
-  { id: "pebblewing",   name: "Pebblewing",   emoji: "🪨", rarity: "Common", chance: 2, stats: { hp: 120, attack: 35, defense: 50, speed: 20 }, ability: "Rock Lob",     class: "Boulder Class", description: "A stout, dependable little tank that lobs pebbles with surprising accuracy." },
-  { id: "spritewing",   name: "Spritewing",   emoji: "🌟", rarity: "Common", chance: 2, stats: { hp: 90,  attack: 55, defense: 35, speed: 70 }, ability: "Spine Shot",   class: "Tracker Class", description: "Quick and bright-eyed, it flicks heated spines from its tail at any target it fancies." },
-  { id: "flicker",      name: "Flicker",      emoji: "🔥", rarity: "Common", chance: 2, stats: { hp: 100, attack: 65, defense: 30, speed: 50 }, ability: "Flame Coat",   class: "Stoker Class",  description: "An eager hatchling that sets its own skin alight when it gets excited." },
-  { id: "brookskimmer", name: "Brookskimmer", emoji: "🐬", rarity: "Common", chance: 5, stats: { hp: 80,  attack: 45, defense: 60, speed: 55 }, ability: "Acid Spray",   class: "Tidal Class",   description: "Skims river-mouths for fish and spits a mild acid to crack open shellfish." },
-  { id: "twinhiss",     name: "Twinhiss",     emoji: "🐍", rarity: "Common", chance: 5, stats: { hp: 90,  attack: 48, defense: 42, speed: 50 }, ability: "Gas & Spark",  class: "Mystery Class", description: "A two-headed drake: one head leaks flammable gas, the other strikes the spark." },
-  { id: "moodscale",    name: "Moodscale",    emoji: "🦋", rarity: "Common", chance: 5, stats: { hp: 75,  attack: 40, defense: 45, speed: 58 }, ability: "Mood Flame",   class: "Stoker Class",  description: "Its scales shift colour with its mood — and its flame burns the same hue." },
-  { id: "tinywing",     name: "Tinywing",     emoji: "🦎", rarity: "Common", chance: 5, stats: { hp: 55,  attack: 35, defense: 30, speed: 72 }, ability: "Tiny Blaze",   class: "Stoker Class",  description: "Pocket-sized, big attitude. Fiercely loyal once it decides you are worthy." },
-  { id: "dunewraith",   name: "Dunewraith",   emoji: "🏜️", rarity: "Common", chance: 4, stats: { hp: 85,  attack: 50, defense: 42, speed: 65 }, ability: "Sandblast",    class: "Tidal Class",   description: "Buries itself in warm sand and erupts in a blinding spray to surprise prey." },
-  { id: "bloomtrap",    name: "Bloomtrap",    emoji: "🌸", rarity: "Common", chance: 3, stats: { hp: 70,  attack: 42, defense: 38, speed: 55 }, ability: "Lure and Snap", class: "Mystery Class", description: "Disguises itself as a patch of sweet flowers, then snaps shut on the curious." },
+  { id: "pebblewing",   name: "Pebblewing",   emoji: "🪨", rarity: "Common", chance: 2, stats: { hp: 120, attack: 35, defense: 50, speed: 20 }, ability: "Rock Lob",     class: "Crag Class", description: "A stout, dependable little tank that lobs pebbles with surprising accuracy." },
+  { id: "spritewing",   name: "Spritewing",   emoji: "🌟", rarity: "Common", chance: 2, stats: { hp: 90,  attack: 55, defense: 35, speed: 70 }, ability: "Spine Shot",   class: "Seeker Class", description: "Quick and bright-eyed, it flicks heated spines from its tail at any target it fancies." },
+  { id: "flicker",      name: "Flicker",      emoji: "🔥", rarity: "Common", chance: 2, stats: { hp: 100, attack: 65, defense: 30, speed: 50 }, ability: "Flame Coat",   class: "Ember Class",  description: "An eager hatchling that sets its own skin alight when it gets excited." },
+  { id: "brookskimmer", name: "Brookskimmer", emoji: "🐬", rarity: "Common", chance: 5, stats: { hp: 80,  attack: 45, defense: 60, speed: 55 }, ability: "Acid Spray",   class: "Tide Class",   description: "Skims river-mouths for fish and spits a mild acid to crack open shellfish." },
+  { id: "twinhiss",     name: "Twinhiss",     emoji: "🐍", rarity: "Common", chance: 5, stats: { hp: 90,  attack: 48, defense: 42, speed: 50 }, ability: "Gas & Spark",  class: "Mystic Class", description: "A two-headed drake: one head leaks flammable gas, the other strikes the spark." },
+  { id: "moodscale",    name: "Moodscale",    emoji: "🦋", rarity: "Common", chance: 5, stats: { hp: 75,  attack: 40, defense: 45, speed: 58 }, ability: "Mood Flame",   class: "Ember Class",  description: "Its scales shift colour with its mood — and its flame burns the same hue." },
+  { id: "tinywing",     name: "Tinywing",     emoji: "🦎", rarity: "Common", chance: 5, stats: { hp: 55,  attack: 35, defense: 30, speed: 72 }, ability: "Tiny Blaze",   class: "Ember Class",  description: "Pocket-sized, big attitude. Fiercely loyal once it decides you are worthy." },
+  { id: "dunewraith",   name: "Dunewraith",   emoji: "🏜️", rarity: "Common", chance: 4, stats: { hp: 85,  attack: 50, defense: 42, speed: 65 }, ability: "Sandblast",    class: "Tide Class",   description: "Buries itself in warm sand and erupts in a blinding spray to surprise prey." },
+  { id: "bloomtrap",    name: "Bloomtrap",    emoji: "🌸", rarity: "Common", chance: 3, stats: { hp: 70,  attack: 42, defense: 38, speed: 55 }, ability: "Lure and Snap", class: "Mystic Class", description: "Disguises itself as a patch of sweet flowers, then snaps shut on the curious." },
 ];
 
 // Actual: TW=3, Leg=3, Epic=9, Rare=20, Uncommon=32, Common=4×8.5=34 → total=101. Tide Glider set to 8.0 → 100.5. terrible_terror=8.0 → 100.
@@ -377,7 +377,7 @@ const PROTECTED_AREAS = [
     lore: "Grott accidentally discovered it. Haldor declared it off-limits to hunters under penalty of banishment. The rule still holds.",
     minLevel: 1,
     capacity: 25,
-    preferredClasses: ["Stoker Class", "Boulder Class", "Tidal Class"],
+    preferredClasses: ["Ember Class", "Crag Class", "Tide Class"],
     bonusNote: "Any dragon released here will find a safe home and a nest.",
   },
   {
@@ -388,7 +388,7 @@ const PROTECTED_AREAS = [
     lore: "Fishlegs catalogued 47 species here. Moith blessed it with Elder runes. The Defenders of the Wing patrol its waters from a respectful distance.",
     minLevel: 5,
     capacity: 20,
-    preferredClasses: ["Boulder Class", "Tidal Class", "Stoker Class"],
+    preferredClasses: ["Crag Class", "Tide Class", "Ember Class"],
     bonusNote: "Common and Uncommon dragons thrive here, forming new herds.",
   },
   {
@@ -399,8 +399,8 @@ const PROTECTED_AREAS = [
     lore: "The island's music comes from wind through rock formations — but dragons seem to understand it as language. No one has fully explained why.",
     minLevel: 10,
     capacity: 15,
-    preferredClasses: ["Stoker Class", "Sharp Class"],
-    bonusNote: "Stoker and Sharp class dragons are especially drawn here.",
+    preferredClasses: ["Ember Class", "Razor Class"],
+    bonusNote: "Ember and Razor class drakes are especially drawn here.",
   },
   {
     id: "vanaheim",
@@ -410,7 +410,7 @@ const PROTECTED_AREAS = [
     lore: "Only Eret and a handful of riders have ever set foot here. The trees are made of dragon bone and coral. Nothing hunts here.",
     minLevel: 15,
     capacity: 10,
-    preferredClasses: ["Tidal Class", "Mystery Class", "Sharp Class"],
+    preferredClasses: ["Tide Class", "Mystic Class", "Razor Class"],
     bonusNote: "Epic and Legendary dragons released here are never forgotten.",
   },
   {
@@ -421,8 +421,8 @@ const PROTECTED_AREAS = [
     lore: "Toothless first showed Rurik the entrance. The bioluminescent tunnels stretch for miles. Dragons released here are believed to reach the Hidden World itself.",
     minLevel: 20,
     capacity: 12,
-    preferredClasses: ["Strike Class"],
-    bonusNote: "Night Furies and Light Furies released here find their kind.",
+    preferredClasses: ["Storm Class"],
+    bonusNote: "Voidwings and Dawnwings released here find their kind.",
   },
 ];
 
@@ -1748,7 +1748,7 @@ export default function HTTYD_RPG() {
         {tab === "hatchery" && (
           <div>
             <div style={{ marginBottom: "16px", fontSize: "13px", opacity: 0.7, lineHeight: "1.6" }}>
-              Eggs are mystery — any dragon could hatch from one. Night Furies and Light Furies are legendary (2% each). Buy eggs for 30g.
+              Eggs are mystery — any drake could hatch from one. Voidwings and Dawnwings are legendary (2% each). Buy eggs for 30g.
             </div>
             <div style={{ display: "flex", gap: "8px", marginBottom: "16px", flexWrap: "wrap" }}>
               <button className="btn-sm gold" onClick={buyEgg}>🥚 Buy Egg (30g)</button>
