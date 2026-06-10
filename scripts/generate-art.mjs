@@ -69,6 +69,8 @@ async function main() {
   await mkdir(OUT_DIR.location, { recursive: true });
 
   const groups = [["dragons", "dragon"], ["locations", "location"]];
+  let made = 0;
+  const failures = [];
   for (const [groupKey, kind] of groups) {
     const group = cfg[groupKey];
     if (!group) continue;
@@ -81,15 +83,29 @@ async function main() {
       }
       const prompt = `${subject}. ${cfg.style}`;
       console.log(`• gen    ${kind}/${id} via ${PROVIDER} ...`);
-      const raw = await gen(prompt, group.size);
-      await sharp(raw)
-        .resize({ width: TARGET_WIDTH[kind], withoutEnlargement: true })
-        .webp({ quality: 82 })
-        .toFile(outFile);
-      console.log(`  ↳ wrote ${path.relative(ROOT, outFile)}`);
+      // Resilient: one blocked/failed image must not sink the whole batch.
+      try {
+        const raw = await gen(prompt, group.size);
+        await sharp(raw)
+          .resize({ width: TARGET_WIDTH[kind], withoutEnlargement: true })
+          .webp({ quality: 82 })
+          .toFile(outFile);
+        made++;
+        console.log(`  ↳ wrote ${path.relative(ROOT, outFile)}`);
+      } catch (e) {
+        const msg = (e.message || String(e)).replace(/\s+/g, " ").slice(0, 200);
+        failures.push(`${kind}/${id}: ${msg}`);
+        console.error(`  ✗ FAILED ${kind}/${id}: ${msg}`);
+      }
     }
   }
-  console.log("Done. Run `npm run build` to bundle the new art.");
+  console.log(`\nDone. Generated ${made} asset(s); ${failures.length} failed.`);
+  if (failures.length) {
+    console.log("Failures:\n  " + failures.join("\n  "));
+  }
+  // Exit non-zero only if nothing was produced, so the workflow still commits
+  // the assets that did succeed when some images are blocked.
+  if (made === 0) process.exit(1);
 }
 
 main().catch((err) => {
