@@ -95,7 +95,7 @@ const WEAPONS = [
   { id: "bow", name: "Bow", emoji: "🏹", damage: 14, special: null },
   { id: "sword", name: "Sword", emoji: "⚔️", damage: 16, special: null },
   { id: "bludgeon", name: "Bludgeon", emoji: "🔨", damage: 20, special: "Stun" },
-  { id: "dragon_blade", name: "Dragon Blade", emoji: "🔱", damage: 35, special: "Dragon Roar", legendary: true },
+  { id: "dragon_blade", name: "Drake Blade", emoji: "🔱", damage: 35, special: "Drake Roar", legendary: true },
   { id: "heathers_axe", name: "Heather's Axe", emoji: "🪓", damage: 28, special: "Whirlwind", legendary: true },
   { id: "viggos_sword_1", name: "Viggo's Sword I", emoji: "⚔️", damage: 30, special: "Calculated Strike", legendary: true },
   { id: "viggos_sword_2", name: "Viggo's Sword II", emoji: "⚔️", damage: 32, special: "Master Parry", legendary: true },
@@ -107,7 +107,7 @@ const HUMAN_ARMOR = [
   { id: "leather_tunic",    name: "Leather Tunic",       emoji: "🧥", defense: 5,  hpBonus: 10, speed: 0,  tier: 1, description: "Basic protection for any Viking in training." },
   { id: "chain_mail",       name: "Chain Mail",          emoji: "⛓️", defense: 12, hpBonus: 20, speed: -2, tier: 2, description: "Standard Viking battle armour. Heavy but reliable." },
   { id: "plate_armor",      name: "Plate Armour",        emoji: "🛡️", defense: 20, hpBonus: 35, speed: -5, tier: 3, description: "Full iron plate. You won't feel a thing. You also won't run." },
-  { id: "dragon_scale_mail",name: "Dragon Scale Mail",   emoji: "🐉", defense: 30, hpBonus: 50, speed: 0,  tier: 4, description: "Armour woven from shed dragon scales. Light and nearly impenetrable.", legendary: true },
+  { id: "dragon_scale_mail",name: "Drake Scale Mail",   emoji: "🐉", defense: 30, hpBonus: 50, speed: 0,  tier: 4, description: "Armour woven from shed drake scales. Light and nearly impenetrable.", legendary: true },
   { id: "night_fury_cloak", name: "Night Fury Cloak",    emoji: "🖤", defense: 25, hpBonus: 40, speed: 10, tier: 4, description: "A gift from a bonded Night Fury. Absorbs impact and boosts agility.", legendary: true },
   { id: "berkian_chief_armor", name: "Holtgardian Chief Armour", emoji: "👑", defense: 35, hpBonus: 60, speed: -3, tier: 5, description: "Haldor's own armour, passed to the worthy. Inspires all who see it.", legendary: true },
 ];
@@ -116,46 +116,46 @@ const HUMAN_ARMOR = [
 const DRAGON_ARMOR = [
   { id: "leather_wing_guards", name: "Leather Wing Guards",   emoji: "🦴", defenseBonus: 8,  hpBonus: 15, speedPenalty: 0,  tier: 1, description: "Soft leather guards for wing joints. Basic protection." },
   { id: "iron_scale_plates",   name: "Iron Scale Plates",     emoji: "🔩", defenseBonus: 18, hpBonus: 25, speedPenalty: 5,  tier: 2, description: "Iron plates riveted over the most exposed areas." },
-  { id: "full_dragon_armor",   name: "Full Dragon Armour",    emoji: "🛡️", defenseBonus: 28, hpBonus: 40, speedPenalty: 10, tier: 3, description: "Complete iron-and-leather body armour for a dragon." },
-  { id: "dragonite_plating",   name: "Dragonite Plating",     emoji: "💎", defenseBonus: 40, hpBonus: 55, speedPenalty: 5,  tier: 4, description: "Rare dragonite ore plates. Harder than steel, lighter than iron.", legendary: true },
-  { id: "titanwing_harness",   name: "Titanwing Harness",     emoji: "👑", defenseBonus: 50, hpBonus: 70, speedPenalty: 0,  tier: 5, description: "Forged by Grott for a Titanwing. The pinnacle of dragon protection.", legendary: true },
+  { id: "full_dragon_armor",   name: "Full Drake Armour",    emoji: "🛡️", defenseBonus: 28, hpBonus: 40, speedPenalty: 10, tier: 3, description: "Complete iron-and-leather body armour for a drake." },
+  { id: "dragonite_plating",   name: "Drakonite Plating",     emoji: "💎", defenseBonus: 40, hpBonus: 55, speedPenalty: 5,  tier: 4, description: "Rare drakonite ore plates. Harder than steel, lighter than iron.", legendary: true },
+  { id: "titanwing_harness",   name: "Titanwing Harness",     emoji: "👑", defenseBonus: 50, hpBonus: 70, speedPenalty: 0,  tier: 5, description: "Forged by Grott for a Titanwing. The pinnacle of drake protection.", legendary: true },
 ];
 
 const LOCATIONS = [
-  { id: "berk",             name: "Holtgard",                        emoji: "🏔️", minLevel: 1,  description: "Your home island. Chief Haldor's domain.",                                    characters: ["Rurik", "Sigrun", "Haldor", "Grott", "Moith"], enemies: ["Outcast Raider", "Dragon Hunter Scout"] },
-  { id: "dragons_edge",     name: "Stormwatch Spire",               emoji: "🌊", minLevel: 1,  description: "The edge outpost. Base of operations.",                                        characters: ["Rurik", "Sigrun", "Fishlegs", "Snotlout", "Ruffnut", "Tuffnut"], enemies: ["Dragon Hunter Scout", "Dragon Hunter Warrior"] },
-  { id: "glacier_island",   name: "Glacier Island",              emoji: "🧊", minLevel: 5,  description: "A frozen wasteland. Snow Wraiths lurk here.",                                  characters: [], enemies: ["Snow Wraith", "Dragon Hunter Scout"] },
-  { id: "berserker_island", name: "Berserker Island",            emoji: "⚡", minLevel: 10, description: "Home of Dagur the Deranged.",                                                  characters: ["Dagur", "Heather"], enemies: ["Dragon Hunter Warrior", "Hunter Captain"] },
-  { id: "defenders_wing",   name: "Defenders of the Wing Island",emoji: "🌺", minLevel: 15, description: "Home of Mala and her people.",                                                  characters: ["Mala"], enemies: ["Dragon Hunter Warrior", "Viggo's Elite Guard"] },
+  { id: "berk",             name: "Holtgard",                        emoji: "🏔️", minLevel: 1,  description: "Your home island. Chief Haldor's domain.",                                    characters: ["Rurik", "Sigrun", "Haldor", "Grott", "Moith"], enemies: ["Outcast Raider", "Drake Hunter Scout"] },
+  { id: "dragons_edge",     name: "Stormwatch Spire",               emoji: "🌊", minLevel: 1,  description: "The edge outpost. Base of operations.",                                        characters: ["Rurik", "Sigrun", "Fishlegs", "Snotlout", "Ruffnut", "Tuffnut"], enemies: ["Drake Hunter Scout", "Drake Hunter Warrior"] },
+  { id: "glacier_island",   name: "Glacier Island",              emoji: "🧊", minLevel: 5,  description: "A frozen wasteland. Snow Wraiths lurk here.",                                  characters: [], enemies: ["Snow Wraith", "Drake Hunter Scout"] },
+  { id: "berserker_island", name: "Berserker Island",            emoji: "⚡", minLevel: 10, description: "Home of Dagur the Deranged.",                                                  characters: ["Dagur", "Heather"], enemies: ["Drake Hunter Warrior", "Hunter Captain"] },
+  { id: "defenders_wing",   name: "Defenders of the Wing Island",emoji: "🌺", minLevel: 15, description: "Home of Mala and her people.",                                                  characters: ["Mala"], enemies: ["Drake Hunter Warrior", "Viggo's Elite Guard"] },
   { id: "dark_deep",        name: "Dark Deep",                   emoji: "🌑", minLevel: 20, description: "Mysterious deep waters. Screaming Deaths nest here.",                          characters: [], enemies: ["Screaming Death", "Viggo's Elite Guard"] },
   { id: "dramillion_island",name: "Dramillion Island",           emoji: "🔴", minLevel: 25, description: "Rare Dramillions roam free.",                                                  characters: [], enemies: ["Hunter Captain", "Viggo's Elite Guard"] },
-  { id: "viggos_base",      name: "Viggo's Stronghold",          emoji: "💀", minLevel: 30, description: "The Dragon Hunter fortress. Viggo commands here.",                             characters: ["Viggo", "Krogan", "Ryker"], enemies: ["Viggo's Elite Guard", "Krogan's Berserker", "Viggo Grimborn", "Ryker Grimborn"] },
+  { id: "viggos_base",      name: "Viggo's Stronghold",          emoji: "💀", minLevel: 30, description: "The Drake Hunter fortress. Viggo commands here.",                             characters: ["Viggo", "Krogan", "Ryker"], enemies: ["Viggo's Elite Guard", "Krogan's Berserker", "Viggo Grimborn", "Ryker Grimborn"] },
   { id: "johanns_ship",     name: "Johann's Trading Post",       emoji: "⚓", minLevel: 8,  description: "A travelling merchant vessel. Johann seems friendly... at first. Watch your back.", characters: ["Johann"], enemies: ["Johann's Hired Thug", "Trader Johann (Traitor)"], johannWarning: true },
-  { id: "rykers_outpost",   name: "Ryker's Outpost",             emoji: "💢", minLevel: 18, description: "Ryker Grimborn's brutal operations base. Viggo's enforcer runs this place with an iron fist.", characters: ["Ryker"], enemies: ["Dragon Hunter Warrior", "Ryker Grimborn"] },
+  { id: "rykers_outpost",   name: "Ryker's Outpost",             emoji: "💢", minLevel: 18, description: "Ryker Grimborn's brutal operations base. Viggo's enforcer runs this place with an iron fist.", characters: ["Ryker"], enemies: ["Drake Hunter Warrior", "Ryker Grimborn"] },
 ];
 
 const CHARACTERS = {
-  Rurik: { emoji: "🦾", lines: ["I say we fight smart, not hard.", "Every dragon has a story — you just need to listen.", "Nice flying out there. Seriously.", "The best riders aren't the strongest. They're the ones who understand their dragons."] },
-  Sigrun: { emoji: "⚔️", lines: ["Your form is sloppy. I've seen Snotlout fly better. Almost.", "A true rider never gives up on their dragon.", "You want to be great? Train harder.", "Next time, lead with the barrel roll."] },
+  Rurik: { emoji: "🦾", lines: ["I say we fight smart, not hard.", "Every drake has a story — you just need to listen.", "Nice flying out there. Seriously.", "The best riders aren't the strongest. They're the ones who understand their drakes."] },
+  Sigrun: { emoji: "⚔️", lines: ["Your form is sloppy. I've seen Snotlout fly better. Almost.", "A true rider never gives up on their drake.", "You want to be great? Train harder.", "Next time, lead with the barrel roll."] },
   Haldor: { emoji: "👑", lines: ["There will always be a Holtgard. And as long as there is, we Vikings will stand.", "A chief protects his own.", "You've made Holtgard proud today.", "The mark of a true chief is knowing when to listen."] },
-  Grott: { emoji: "🔧", lines: ["I once lost a hand, a leg, and my dignity all in the same week. Tuesdays, am I right?", "You'll want to get that wing-joint checked — I've seen worse, but not much.", "Come back in one piece. Or pieces. I can work with pieces.", "That dragon looks hungry. Also, you look hungry."], isGrott: true },
+  Grott: { emoji: "🔧", lines: ["I once lost a hand, a leg, and my dignity all in the same week. Tuesdays, am I right?", "You'll want to get that wing-joint checked — I've seen worse, but not much.", "Come back in one piece. Or pieces. I can work with pieces.", "That drake looks hungry. Also, you look hungry."], isGrott: true },
   Moith: { emoji: "👵", lines: ["..."], isMoith: true },
-  Fishlegs: { emoji: "📚", lines: ["Did you know Gronckles can eat rocks? Multiple kinds! It changes their fire composition!", "I've cross-referenced your dragon's stats and... impressive, actually.", "The Dragon Eye has an entry on this island. Fascinating.", "Don't tell Snotlout I said this, but your dragon is objectively superior."] },
+  Fishlegs: { emoji: "📚", lines: ["Did you know Gronckles can eat rocks? Multiple kinds! It changes their fire composition!", "I've cross-referenced your drake's stats and... impressive, actually.", "The Drake Eye has an entry on this island. Fascinating.", "Don't tell Snotlout I said this, but your drake is objectively superior."] },
   Snotlout: { emoji: "💪", lines: ["Let me guess — you want to be as great as me. Understandable.", "Hookfang and I could have handled that. We were just letting you have the win.", "Snotlout! Snotlout! Oi! Oi! Oi!", "I'm not impressed. I'm just... mildly interested."] },
-  Dagur: { emoji: "😜", lines: ["GLORIOUS! The chaos! The fire! I love it!", "You know, I used to want to destroy dragons. Now I just want to BE one. Relatable.", "My sister says you're decent. High praise from Heather.", "Let's battle! Or be friends! Both options excite me equally!"] },
-  Heather: { emoji: "🗡️", lines: ["Trust no one until they've earned it. Then trust them with everything.", "I've been underestimated my whole life. It never gets old.", "Your dragon is strong. So are you. Don't forget that.", "Dagur says you're good. I needed to see it myself. ...I see it."] },
-  Mala: { emoji: "🌺", lines: ["The Eruptodon protects us. We protect the Eruptodon. Balance in all things.", "You have proven yourself worthy of Defenders' trust. Do not squander it.", "Our island does not welcome the weak of spirit.", "The dragons choose their riders. Remember that always."] },
-  Viggo: { emoji: "♟️", lines: ["You play the game well. But I play it better.", "Every move has a consequence. Have you considered yours?", "I admire your persistence. Truly. It will make your defeat more satisfying.", "The dragon trade is merely business. Don't take it personally.", "Maces and Talons — a game of strategy, patience, and sacrifice. Much like dragon hunting, wouldn't you say?", "In Maces and Talons, every piece has a purpose. Even the ones you lose.", "You remind me of a Maces and Talons player who relies on aggression over intellect. Predictable. Beatable.", "The Maces represent brute force. The Talons, precision and cunning. I have always preferred the Talons.", "I once played Maces and Talons for three days straight. My opponent wept. I consider that a win.", "Would you care for a game of Maces and Talons? I promise to make your defeat... educational."] },
+  Dagur: { emoji: "😜", lines: ["GLORIOUS! The chaos! The fire! I love it!", "You know, I used to want to destroy drakes. Now I just want to BE one. Relatable.", "My sister says you're decent. High praise from Heather.", "Let's battle! Or be friends! Both options excite me equally!"] },
+  Heather: { emoji: "🗡️", lines: ["Trust no one until they've earned it. Then trust them with everything.", "I've been underestimated my whole life. It never gets old.", "Your drake is strong. So are you. Don't forget that.", "Dagur says you're good. I needed to see it myself. ...I see it."] },
+  Mala: { emoji: "🌺", lines: ["The Eruptodon protects us. We protect the Eruptodon. Balance in all things.", "You have proven yourself worthy of Defenders' trust. Do not squander it.", "Our island does not welcome the weak of spirit.", "The drakes choose their riders. Remember that always."] },
+  Viggo: { emoji: "♟️", lines: ["You play the game well. But I play it better.", "Every move has a consequence. Have you considered yours?", "I admire your persistence. Truly. It will make your defeat more satisfying.", "The drake trade is merely business. Don't take it personally.", "Maces and Talons — a game of strategy, patience, and sacrifice. Much like drake hunting, wouldn't you say?", "In Maces and Talons, every piece has a purpose. Even the ones you lose.", "You remind me of a Maces and Talons player who relies on aggression over intellect. Predictable. Beatable.", "The Maces represent brute force. The Talons, precision and cunning. I have always preferred the Talons.", "I once played Maces and Talons for three days straight. My opponent wept. I consider that a win.", "Would you care for a game of Maces and Talons? I promise to make your defeat... educational."] },
   Krogan: { emoji: "🦅", lines: ["The Singetails obey me. You would be wise to follow their example.", "Viggo thinks in chess pieces. I think in armies.", "You've come far. That ends here.", "I've broken stronger riders than you."] },
-  Johann: { emoji: "🐍", lines: ["Oh, Master Rurik! What a delight to see you! I bring only the finest goods... and information.", "You know, I've always admired dragon riders. Truly. No ulterior motive whatsoever.", "Trade is the foundation of trust, wouldn't you say? ...Don't look at me like that.", "Every story has two sides. Mine simply has... more profit in it.", "I have been so grossly misunderstood. I am but a humble trader.", "The King of Dragons? Oh yes, I know exactly where it is. For a price.", "You're sharper than you look. That's... inconvenient.", "Loyalty is just a currency, dear rider. And mine goes to the highest bidder."] },
-  Ryker: { emoji: "💢", lines: ["My brother plays chess. I prefer more... direct solutions.", "You really thought you could sail into my waters?", "Viggo deals in strategy. I deal in pain. Guess which one you're getting.", "Every rider who's crossed me regrets it. Briefly.", "I don't negotiate. I don't debate. I hit things until they stop moving.", "You're brave. I'll give you that. Brave and stupid.", "The dragons will be caged. All of them. Starting with yours."] },
+  Johann: { emoji: "🐍", lines: ["Oh, Master Rurik! What a delight to see you! I bring only the finest goods... and information.", "You know, I've always admired drake riders. Truly. No ulterior motive whatsoever.", "Trade is the foundation of trust, wouldn't you say? ...Don't look at me like that.", "Every story has two sides. Mine simply has... more profit in it.", "I have been so grossly misunderstood. I am but a humble trader.", "The King of Drakes? Oh yes, I know exactly where it is. For a price.", "You're sharper than you look. That's... inconvenient.", "Loyalty is just a currency, dear rider. And mine goes to the highest bidder."] },
+  Ryker: { emoji: "💢", lines: ["My brother plays chess. I prefer more... direct solutions.", "You really thought you could sail into my waters?", "Viggo deals in strategy. I deal in pain. Guess which one you're getting.", "Every rider who's crossed me regrets it. Briefly.", "I don't negotiate. I don't debate. I hit things until they stop moving.", "You're brave. I'll give you that. Brave and stupid.", "The drakes will be caged. All of them. Starting with yours."] },
   Ruffnut: { emoji: "👱‍♀️", lines: ["Barf is the best head. Don't tell Tuffnut.", "We're not twins. We're the same person. A better person.", "Last time someone underestimated me, they regretted it. For about five seconds."] },
   Tuffnut: { emoji: "👱‍♂️", lines: ["Belch is clearly the superior head. The science is irrefutable.", "I have a plan. Ruffnut hates it. Therefore it's good.", "Chickens. That's all I'll say. Chickens."] },
 };
 
 const ENEMIES = [
-  { id: "hunter_scout",    name: "Dragon Hunter Scout",     emoji: "🏹", hp: 40,  attack: 15, defense: 8,  xp: 25,  gold: 15,  loot: ["daggers", "bow", "leather_tunic"] },
-  { id: "hunter_warrior",  name: "Dragon Hunter Warrior",   emoji: "⚔️", hp: 65,  attack: 22, defense: 12, xp: 45,  gold: 25,  loot: ["axe", "crossbow", "chain_mail", "leather_wing_guards"] },
+  { id: "hunter_scout",    name: "Drake Hunter Scout",     emoji: "🏹", hp: 40,  attack: 15, defense: 8,  xp: 25,  gold: 15,  loot: ["daggers", "bow", "leather_tunic"] },
+  { id: "hunter_warrior",  name: "Drake Hunter Warrior",   emoji: "⚔️", hp: 65,  attack: 22, defense: 12, xp: 45,  gold: 25,  loot: ["axe", "crossbow", "chain_mail", "leather_wing_guards"] },
   { id: "outcast_raider",  name: "Outcast Raider",          emoji: "🪓", hp: 55,  attack: 20, defense: 10, xp: 35,  gold: 20,  loot: ["axe", "bludgeon", "leather_tunic", "leather_wing_guards"] },
   { id: "hunter_captain",  name: "Hunter Captain",          emoji: "🦅", hp: 100, attack: 30, defense: 20, xp: 80,  gold: 50,  loot: ["double_axe", "heathers_axe", "chain_mail", "iron_scale_plates"] },
   { id: "viggo_guard",     name: "Viggo's Elite Guard",     emoji: "🛡️", hp: 120, attack: 35, defense: 28, xp: 100, gold: 65,  loot: ["sword", "viggos_sword_1", "plate_armor", "full_dragon_armor"] },
@@ -175,7 +175,7 @@ function getLevelTitle(level) {
   if (level <= 20) return "Starter Rider";
   if (level <= 25) return "Novice Rider";
   if (level <= 30) return "Full Fledged Rider";
-  return "Dragon Master";
+  return "Drake Master";
 }
 
 function xpForLevel(level) {
@@ -233,11 +233,11 @@ const DRAKE_COLORS = {
 
 // Moith writes in runes — Grott translates (badly)
 const MOITH_TRANSLATIONS = [
-  { runes: "ᚦᚢ ᛞᚱᛖᚲᚨ ᛖᚱ ᛊᛏᚱᚨᚾᚷᚱ", real: "Your dragon is strong and well-bonded to you.", gobber: "She says your dragon smells like old fish and could stand to lose a few pounds. Her words, not mine." },
+  { runes: "ᚦᚢ ᛞᚱᛖᚲᚨ ᛖᚱ ᛊᛏᚱᚨᚾᚷᚱ", real: "Your drake is strong and well-bonded to you.", gobber: "She says your drake smells like old fish and could stand to lose a few pounds. Her words, not mine." },
   { runes: "ᚾᛖᛋᛏᚨ ᛒᛖᛏᚱ", real: "Rest is the best medicine.", gobber: "Moith says you should wrestle a Terrible Terror to build character. Also something about soup." },
-  { runes: "ᚠᚨᚱᛁ ᛗᛖᛞ ᚺᚢᚷᚱ", real: "Be careful with care.", gobber: "She's saying the dragon needs more vegetables in its diet. Possibly also you. Look, I'm doing my best here." },
+  { runes: "ᚠᚨᚱᛁ ᛗᛖᛞ ᚺᚢᚷᚱ", real: "Be careful with care.", gobber: "She's saying the drake needs more vegetables in its diet. Possibly also you. Look, I'm doing my best here." },
   { runes: "ᛞᚢ ᛖᚱᛏ ᛊᛏᛖᚱᚲ", real: "You are brave and resilient.", gobber: "Moith says you remind her of a young Haldor. That's either a compliment or a warning. Fifty-fifty, really." },
-  { runes: "ᚷᚱᛖᛁᚾ ᚨ ᛞᚱᛖᚲᚨ", real: "Heal your dragon with rest and patience.", gobber: "Right, so she definitely said something about your dragon needing rest, but she also drew what I think is a yak? She's very expressive." },
+  { runes: "ᚷᚱᛖᛁᚾ ᚨ ᛞᚱᛖᚲᚨ", real: "Heal your drake with rest and patience.", gobber: "Right, so she definitely said something about your drake needing rest, but she also drew what I think is a yak? She's very expressive." },
   { runes: "ᛏᚱᚢᛊᛏ ᛏᚺᛁᚾ ᛒᛟᚾᛞ", real: "Trust the bond between you.", gobber: "She says the two of you are destined for great things. OR she's asking if you've seen her walking stick. It was definitely one of those." },
 ];
 
@@ -260,8 +260,8 @@ const QUESTS = [
     giverEmoji: "🦾",
     location: "berk",
     minLevel: 1,
-    description: "Rurik wants to see you bond with your dragon. Take to the skies and go for a ride.",
-    objectives: [{ id: "ride", label: "Ride your dragon", type: "ride", count: 1, progress: 0 }],
+    description: "Rurik wants to see you bond with your drake. Take to the skies and go for a ride.",
+    objectives: [{ id: "ride", label: "Ride your drake", type: "ride", count: 1, progress: 0 }],
     reward: { xp: 40, gold: 20, item: null },
     rewardText: "+40 XP, +20g",
     flavour: "\"Every rider starts somewhere. Go on — trust them.\" — Rurik",
@@ -273,8 +273,8 @@ const QUESTS = [
     giverEmoji: "⚔️",
     location: "dragons_edge",
     minLevel: 1,
-    description: "Dragon Hunters have been spotted near the Edge. Sigrun wants you to drive them off.",
-    objectives: [{ id: "kill_hunters", label: "Defeat Dragon Hunters", type: "kill", target: "Dragon Hunter Scout", count: 3, progress: 0 }],
+    description: "Drake Hunters have been spotted near the Edge. Sigrun wants you to drive them off.",
+    objectives: [{ id: "kill_hunters", label: "Defeat Drake Hunters", type: "kill", target: "Drake Hunter Scout", count: 3, progress: 0 }],
     reward: { xp: 80, gold: 40, item: "crossbow" },
     rewardText: "+80 XP, +40g, Crossbow",
     flavour: "\"They're getting bolder. Make them regret it.\" — Sigrun",
@@ -317,7 +317,7 @@ const QUESTS = [
     location: "berserker_island",
     minLevel: 10,
     description: "Dagur wants to see if you're worthy of calling yourself a rider — defeat his Berserker warriors in battle.",
-    objectives: [{ id: "kill_berserkers", label: "Defeat Berserker Warriors", type: "kill", target: "Dragon Hunter Warrior", count: 4, progress: 0 }],
+    objectives: [{ id: "kill_berserkers", label: "Defeat Berserker Warriors", type: "kill", target: "Drake Hunter Warrior", count: 4, progress: 0 }],
     reward: { xp: 200, gold: 100, item: "double_axe" },
     rewardText: "+200 XP, +100g, Double-Sided Axe",
     flavour: "\"MAGNIFICENT! You're almost as good as me. Almost!\" — Dagur",
@@ -342,14 +342,14 @@ const QUESTS = [
     giverEmoji: "🌺",
     location: "defenders_wing",
     minLevel: 15,
-    description: "To earn the trust of the Defenders of the Wing, Mala requires you to prove your bond with your dragon — visit three locations and survive a battle.",
+    description: "To earn the trust of the Defenders of the Wing, Mala requires you to prove your bond with your drake — visit three locations and survive a battle.",
     objectives: [
       { id: "visit_dark", label: "Scout Dark Deep", type: "visit", target: "dark_deep", count: 1, progress: 0 },
       { id: "kill_soldiers", label: "Repel Viggo's Soldiers", type: "kill", target: "Viggo's Elite Guard", count: 2, progress: 0 },
     ],
     reward: { xp: 300, gold: 150, item: "dragon_blade" },
-    rewardText: "+300 XP, +150g, Dragon Blade",
-    flavour: "\"The dragons watched you. So did I. You are worthy.\" — Mala",
+    rewardText: "+300 XP, +150g, Drake Blade",
+    flavour: "\"The drakes watched you. So did I. You are worthy.\" — Mala",
   },
   {
     id: "johanns_secret",
@@ -413,30 +413,30 @@ const PROTECTED_AREAS = [
     id: "the_rookery",
     name: "The Rookery",
     emoji: "🪺",
-    description: "A towering sea stack riddled with nesting caves. Protected by an ancient agreement between Holtgard and the wild dragons.",
+    description: "A towering sea stack riddled with nesting caves. Protected by an ancient agreement between Holtgard and the wild drakes.",
     lore: "Grott accidentally discovered it. Haldor declared it off-limits to hunters under penalty of banishment. The rule still holds.",
     minLevel: 1,
     capacity: 25,
     preferredClasses: ["Ember Class", "Crag Class", "Tide Class"],
-    bonusNote: "Any dragon released here will find a safe home and a nest.",
+    bonusNote: "Any drake released here will find a safe home and a nest.",
   },
   {
     id: "the_sanctuary",
     name: "The Sanctuary",
     emoji: "🏝️",
-    description: "A remote, fog-shrouded island no hunter has ever found. Dragons live undisturbed.",
+    description: "A remote, fog-shrouded island no hunter has ever found. Drakes live undisturbed.",
     lore: "Fishlegs catalogued 47 species here. Moith blessed it with Elder runes. The Defenders of the Wing patrol its waters from a respectful distance.",
     minLevel: 5,
     capacity: 20,
     preferredClasses: ["Crag Class", "Tide Class", "Ember Class"],
-    bonusNote: "Common and Uncommon dragons thrive here, forming new herds.",
+    bonusNote: "Common and Uncommon drakes thrive here, forming new herds.",
   },
   {
     id: "melody_island",
     name: "Melody Island",
     emoji: "🎵",
-    description: "An island that hums with strange dragon song. Typhoomerangs here have never seen a hunter. They dance in thermal rings above the peaks.",
-    lore: "The island's music comes from wind through rock formations — but dragons seem to understand it as language. No one has fully explained why.",
+    description: "An island that hums with strange drake song. Typhoomerangs here have never seen a hunter. They dance in thermal rings above the peaks.",
+    lore: "The island's music comes from wind through rock formations — but drakes seem to understand it as language. No one has fully explained why.",
     minLevel: 10,
     capacity: 15,
     preferredClasses: ["Ember Class", "Razor Class"],
@@ -446,19 +446,19 @@ const PROTECTED_AREAS = [
     id: "vanaheim",
     name: "Vanaheim",
     emoji: "🍂",
-    description: "The ancient dragon graveyard — and a place of new beginnings. Injured and elderly dragons come here to rest. Sacred ground.",
-    lore: "Only Eret and a handful of riders have ever set foot here. The trees are made of dragon bone and coral. Nothing hunts here.",
+    description: "The ancient drake graveyard — and a place of new beginnings. Injured and elderly drakes come here to rest. Sacred ground.",
+    lore: "Only Eret and a handful of riders have ever set foot here. The trees are made of drake bone and coral. Nothing hunts here.",
     minLevel: 15,
     capacity: 10,
     preferredClasses: ["Tide Class", "Mystic Class", "Razor Class"],
-    bonusNote: "Epic and Legendary dragons released here are never forgotten.",
+    bonusNote: "Epic and Legendary drakes released here are never forgotten.",
   },
   {
     id: "hidden_world_entrance",
     name: "Hidden World Entrance",
     emoji: "🌀",
-    description: "A shimmering sea cave leading toward the Hidden World — where dragons are truly free. Only the most bonded riders know this place exists.",
-    lore: "Toothless first showed Rurik the entrance. The bioluminescent tunnels stretch for miles. Dragons released here are believed to reach the Hidden World itself.",
+    description: "A shimmering sea cave leading toward the Hidden World — where drakes are truly free. Only the most bonded riders know this place exists.",
+    lore: "Toothless first showed Rurik the entrance. The bioluminescent tunnels stretch for miles. Drakes released here are believed to reach the Hidden World itself.",
     minLevel: 20,
     capacity: 12,
     preferredClasses: ["Storm Class"],
@@ -489,7 +489,7 @@ export default function HTTYD_RPG() {
   const [playerHP, setPlayerHP] = useState(100);
   const [playerMaxHP, setPlayerMaxHP] = useState(100);
   const [playerGold, setPlayerGold] = useState(50);
-  const [dragons, setDragons] = useState([]);
+  const [drakes, setDragons] = useState([]);
   const [activeDragonIdx, setActiveDragonIdx] = useState(0);
   const [inventory, setInventory] = useState([]);
   const [equippedWeapon, setEquippedWeapon] = useState(null);
@@ -543,20 +543,20 @@ export default function HTTYD_RPG() {
     saveTimerRef.current = setTimeout(() => {
       const saveData = {
         playerName, playerLevel, playerXP, playerHP, playerMaxHP, playerGold,
-        dragons, activeDragonIdx, inventory, equippedWeapon,
+        drakes, activeDragonIdx, inventory, equippedWeapon,
         currentBase, currentLocation, eggs, log: log.slice(-30),
         customIslands, questLog, releasedDragons, equippedHumanArmor, equippedDragonArmor,
         tutorialSeen,
       };
       window.storage.set(`httyd_save_${activeSlot}`, JSON.stringify(saveData)).catch(() => {});
       // Update account summary
-      const dragon = dragons[activeDragonIdx];
+      const drake = drakes[activeDragonIdx];
       setAccounts(prev => prev.map(a => a.slot === activeSlot
-        ? { ...a, name: playerName, level: playerLevel, dragonName: dragon?.nickname || "—", dragonEmoji: dragon?.emoji || "🐉", lastSaved: Date.now() }
+        ? { ...a, name: playerName, level: playerLevel, dragonName: drake?.nickname || "—", dragonEmoji: drake?.emoji || "🐉", lastSaved: Date.now() }
         : a
       ));
     }, 1500);
-  }, [playerLevel, playerXP, playerHP, playerGold, dragons, inventory, equippedWeapon,
+  }, [playerLevel, playerXP, playerHP, playerGold, drakes, inventory, equippedWeapon,
       currentBase, currentLocation, eggs, questLog, customIslands, releasedDragons]);
 
   async function loadSlot(slot) {
@@ -570,7 +570,7 @@ export default function HTTYD_RPG() {
         setPlayerHP(s.playerHP || 100);
         setPlayerMaxHP(s.playerMaxHP || 100);
         setPlayerGold(s.playerGold || 50);
-        setDragons(s.dragons || []);
+        setDragons(s.drakes || s.dragons || []);
         setActiveDragonIdx(s.activeDragonIdx || 0);
         setInventory(s.inventory || []);
         setEquippedWeapon(s.equippedWeapon || null);
@@ -761,7 +761,7 @@ export default function HTTYD_RPG() {
   }
 
   function startGame(starterDragon) {
-    const dragon = {
+    const drake = {
       ...starterDragon,
       nickname: nameInput.trim() || starterDragon.name,
       level: 1,
@@ -770,10 +770,10 @@ export default function HTTYD_RPG() {
       maxHP: starterDragon.stats.hp,
       currentHP: starterDragon.stats.hp,
     };
-    setDragons([dragon]);
+    setDragons([drake]);
     setCurrentBase("berk");
     setCurrentLocation("berk");
-    addLog(`🐉 ${dragon.nickname} the ${dragon.name} hatched! Your adventure begins.`, "success");
+    addLog(`🐉 ${drake.nickname} the ${drake.name} hatched! Your adventure begins.`, "success");
     addLog(`📍 You start at Holtgard. Talk to Rurik, explore, or find your first fight.`, "info");
     setScreen("game");
     // The starter tutorial auto-opens via the effect above (new rider → tutorialSeen=false).
@@ -816,20 +816,20 @@ export default function HTTYD_RPG() {
   function renameDragon(idx, newName) {
     if (!newName.trim()) return;
     setDragons(prev => prev.map((d, i) => i === idx ? { ...d, nickname: newName.trim() } : d));
-    addLog(`✏️ Dragon renamed to ${newName.trim()}.`, "info");
+    addLog(`✏️ Drake renamed to ${newName.trim()}.`, "info");
   }
 
   function releaseDragon(dragonIdx, areaId) {
     const area = PROTECTED_AREAS.find(a => a.id === areaId);
     if (!area) return;
-    if (dragons.length <= 1) { addLog("❌ You can't release your last dragon.", "error"); return; }
-    if (dragonIdx === activeDragonIdx) { addLog("❌ Switch your active dragon before releasing this one.", "error"); return; }
-    const dragon = dragons[dragonIdx];
-    if (!dragon) return;
+    if (drakes.length <= 1) { addLog("❌ You can't release your last drake.", "error"); return; }
+    if (dragonIdx === activeDragonIdx) { addLog("❌ Switch your active drake before releasing this one.", "error"); return; }
+    const drake = drakes[dragonIdx];
+    if (!drake) return;
     const areaFull = (releasedDragons[areaId]?.length || 0) >= area.capacity;
-    if (areaFull) { addLog(`❌ ${area.name} is at full capacity (${area.capacity} dragons).`, "error"); return; }
-    // Snapshot the dragon
-    const snapshot = { ...dragon, releasedAt: Date.now(), releasedBy: playerName };
+    if (areaFull) { addLog(`❌ ${area.name} is at full capacity (${area.capacity} drakes).`, "error"); return; }
+    // Snapshot the drake
+    const snapshot = { ...drake, releasedAt: Date.now(), releasedBy: playerName };
     setReleasedDragons(prev => ({
       ...prev,
       [areaId]: [...(prev[areaId] || []), snapshot]
@@ -840,7 +840,7 @@ export default function HTTYD_RPG() {
       return prev;
     });
     gainXP(30);
-    addLog(`🕊️ ${dragon.nickname} has been released to ${area.name}. They're free. +30 XP`, "success");
+    addLog(`🕊️ ${drake.nickname} has been released to ${area.name}. They're free. +30 XP`, "success");
     setModal(null);
   }
 
@@ -854,8 +854,8 @@ export default function HTTYD_RPG() {
     if (!combat) return;
     const weapon = equippedWeapon ? WEAPONS.find(w => w.id === equippedWeapon) : null;
     const baseDmg = weapon ? weapon.damage : 10;
-    const dragon = dragons[activeDragonIdx];
-    const dragonBonus = dragon ? Math.floor(dragon.stats.attack / 5) : 0;
+    const drake = drakes[activeDragonIdx];
+    const dragonBonus = drake ? Math.floor(drake.stats.attack / 5) : 0;
     const dmg = baseDmg + dragonBonus + Math.floor(Math.random() * 8);
     const newEnemyHP = Math.max(0, combat.enemyHP - dmg);
     const newLog = [...combat.log, `⚔️ You deal ${dmg} damage! Enemy HP: ${newEnemyHP}/${combat.enemy.maxHp}`];
@@ -880,7 +880,7 @@ export default function HTTYD_RPG() {
     const armorDef = equippedHumanArmor ? (HUMAN_ARMOR.find(a => a.id === equippedHumanArmor)?.defense || 0) : 0;
     const eDmg = Math.max(1, combat.enemy.attack - Math.floor(armorDef / 4) - Math.floor(Math.random() * 5));
     const newPlayerHP = Math.max(0, playerHP - eDmg);
-    // Dragon also takes a glancing hit
+    // Drake also takes a glancing hit
     const dragonDmg = Math.floor(eDmg * 0.4);
     setDragons(prev => prev.map((d, i) => i === activeDragonIdx ? { ...d, currentHP: Math.max(0, d.currentHP - dragonDmg) } : d));
     const finalLog = [...newLog, `💥 ${combat.enemy.name} hits you for ${eDmg}! Your HP: ${newPlayerHP}. ${activeDragon?.nickname} takes ${dragonDmg} damage.`];
@@ -904,18 +904,18 @@ export default function HTTYD_RPG() {
 
   function dragonAttack() {
     if (!combat) return;
-    const dragon = dragons[activeDragonIdx];
-    if (!dragon || dragon.currentHP <= 0) { addLog("❌ Your dragon is incapacitated!", "error"); return; }
-    const dmg = dragon.stats.attack + Math.floor(Math.random() * 15);
+    const drake = drakes[activeDragonIdx];
+    if (!drake || drake.currentHP <= 0) { addLog("❌ Your drake is incapacitated!", "error"); return; }
+    const dmg = drake.stats.attack + Math.floor(Math.random() * 15);
     const newEnemyHP = Math.max(0, combat.enemyHP - dmg);
-    const newLog = [...combat.log, `🐉 ${dragon.nickname} uses ${dragon.ability} for ${dmg} damage!`];
+    const newLog = [...combat.log, `🐉 ${drake.nickname} uses ${drake.ability} for ${dmg} damage!`];
 
     if (newEnemyHP <= 0) {
       const { xp, gold } = combat.enemy;
       gainXP(xp + 10);
       gainDragonXP(activeDragonIdx, Math.floor(xp * 0.9));
       setPlayerGold(g => g + gold);
-      addLog(`✅ ${dragon.nickname} defeated ${combat.enemy.name}! +${xp + 10} XP, +${gold}g`, "success");
+      addLog(`✅ ${drake.nickname} defeated ${combat.enemy.name}! +${xp + 10} XP, +${gold}g`, "success");
       advanceQuestObjective("kill", combat.enemy.name);
       setCombat(null);
       setTab("map");
@@ -924,20 +924,20 @@ export default function HTTYD_RPG() {
 
     const dragonArmorId = equippedDragonArmor[activeDragonIdx];
     const dragonArmorDef = dragonArmorId ? (DRAGON_ARMOR.find(a => a.id === dragonArmorId)?.defenseBonus || 0) : 0;
-    const eDmg = Math.max(1, combat.enemy.attack - Math.floor((dragon.stats.defense + dragonArmorDef) / 8) - Math.floor(Math.random() * 5));
+    const eDmg = Math.max(1, combat.enemy.attack - Math.floor((drake.stats.defense + dragonArmorDef) / 8) - Math.floor(Math.random() * 5));
     setPlayerHP(h => Math.max(0, h - Math.floor(eDmg * 0.5)));
     setDragons(prev => prev.map((d, i) => i === activeDragonIdx ? { ...d, currentHP: Math.max(0, d.currentHP - eDmg) } : d));
-    setCombat({ ...combat, enemyHP: newEnemyHP, log: [...newLog, `💥 ${combat.enemy.name} retaliates! ${dragon.nickname} takes ${eDmg} damage!`] });
+    setCombat({ ...combat, enemyHP: newEnemyHP, log: [...newLog, `💥 ${combat.enemy.name} retaliates! ${drake.nickname} takes ${eDmg} damage!`] });
   }
 
   function talkToCharacter(charName) {
     const char = CHARACTERS[charName];
     if (!char) return;
 
-    // Moith — opens dragon heal modal
+    // Moith — opens drake heal modal
     if (char.isMoith) {
       const entry = MOITH_TRANSLATIONS[Math.floor(Math.random() * MOITH_TRANSLATIONS.length)];
-      addLog(`👵 Moith scratches runes in the dirt and points meaningfully at your dragon.`, "dialogue");
+      addLog(`👵 Moith scratches runes in the dirt and points meaningfully at your drake.`, "dialogue");
       setModal({ type: "gothi", data: entry });
       return;
     }
@@ -978,15 +978,15 @@ export default function HTTYD_RPG() {
     const toPos = ISLAND_POSITIONS[locationId] || { x: 250, y: 170 };
     const dx = toPos.x - fromPos.x, dy = toPos.y - fromPos.y;
     const dist = Math.sqrt(dx * dx + dy * dy);
-    // Speed based on active dragon's speed stat (50 = baseline ~2s, 100 = ~1.2s)
-    const dragon = dragons[activeDragonIdx];
-    const dragonSpeed = dragon?.stats?.speed || 50;
+    // Speed based on active drake's speed stat (50 = baseline ~2s, 100 = ~1.2s)
+    const drake = drakes[activeDragonIdx];
+    const dragonSpeed = drake?.stats?.speed || 50;
     const durationMs = Math.max(1200, Math.min(3500, (dist / dragonSpeed) * 1800));
     const steps = 60;
     const intervalMs = durationMs / steps;
 
-    addLog(`🐉 ${dragon?.nickname || "Your dragon"} takes off toward ${loc.name}...`, "ride");
-    setTravelling({ from: currentLocation, to: locationId, progress: 0, dragonEmoji: dragon?.emoji || "🐉" });
+    addLog(`🐉 ${drake?.nickname || "Your drake"} takes off toward ${loc.name}...`, "ride");
+    setTravelling({ from: currentLocation, to: locationId, progress: 0, dragonEmoji: drake?.emoji || "🐉" });
 
     let step = 0;
     if (travelRef.current) clearInterval(travelRef.current);
@@ -1005,15 +1005,15 @@ export default function HTTYD_RPG() {
   }
 
   function ride() {
-    const dragon = dragons[activeDragonIdx];
-    if (!dragon) { addLog("❌ No dragon to ride!", "error"); return; }
+    const drake = drakes[activeDragonIdx];
+    if (!drake) { addLog("❌ No drake to ride!", "error"); return; }
     const events = [
-      `🌅 You and ${dragon.nickname} soar above the clouds. The world below looks tiny and perfect.`,
-      `💨 ${dragon.nickname} pulls off a perfect barrel roll. You nearly fall off, but manage to hold on.`,
-      `🐟 ${dragon.nickname} dives toward the ocean and snatches a fish. Shows off, then gives you half.`,
-      `⭐ You discover a new thermal updraft. ${dragon.nickname} loves it — +5 XP bonus!`,
-      `🌩️ A storm rolls in. ${dragon.nickname} pushes through it like it's nothing.`,
-      `🤝 ${dragon.nickname} nudges your hand with their snout. Quiet, but meaningful.`,
+      `🌅 You and ${drake.nickname} soar above the clouds. The world below looks tiny and perfect.`,
+      `💨 ${drake.nickname} pulls off a perfect barrel roll. You nearly fall off, but manage to hold on.`,
+      `🐟 ${drake.nickname} dives toward the ocean and snatches a fish. Shows off, then gives you half.`,
+      `⭐ You discover a new thermal updraft. ${drake.nickname} loves it — +5 XP bonus!`,
+      `🌩️ A storm rolls in. ${drake.nickname} pushes through it like it's nothing.`,
+      `🤝 ${drake.nickname} nudges your hand with their snout. Quiet, but meaningful.`,
     ];
     const event = events[Math.floor(Math.random() * events.length)];
     addLog(event, "ride");
@@ -1035,7 +1035,7 @@ export default function HTTYD_RPG() {
       minLevel: 1,
       description: "Your own custom base.",
       characters: [],
-      enemies: ["Dragon Hunters"],
+      enemies: ["Drake Hunters"],
       custom: true,
     };
     setCustomIslands(prev => [...prev, newIsland]);
@@ -1059,7 +1059,7 @@ export default function HTTYD_RPG() {
     if (playerGold < 25) { addLog("❌ Moith's treatment costs 25g.", "error"); setModal(null); return; }
     setPlayerGold(g => g - 25);
     setDragons(prev => prev.map((d, i) => i === dragonIdx ? { ...d, currentHP: d.maxHP || d.stats.hp } : d));
-    const name = dragons[dragonIdx]?.nickname || "your dragon";
+    const name = drakes[dragonIdx]?.nickname || "your drake";
     addLog(`👵 Moith treated ${name}. Fully healed! (-25g)`, "success");
     spawnHealParticles();
     setModal(null);
@@ -1072,7 +1072,7 @@ export default function HTTYD_RPG() {
     addLog("💊 You rested and healed to full HP.", "success");
   }
 
-  const activeDragon = dragons[activeDragonIdx];
+  const activeDragon = drakes[activeDragonIdx];
   const loc = [...LOCATIONS, ...customIslands].find(l => l.id === currentLocation);
   const xpNeeded = xpForLevel(playerLevel);
   const xpPct = Math.min(100, (playerXP / xpNeeded) * 100);
@@ -1111,7 +1111,7 @@ export default function HTTYD_RPG() {
 
         <div style={{ animation: "float2 3s ease-in-out infinite", fontSize: "64px", marginBottom: "12px" }}>🐉</div>
         <div style={{ fontFamily: "'Cinzel Decorative', serif", fontSize: "clamp(20px,4vw,32px)", fontWeight: "900", marginBottom: "4px", textAlign: "center" }}>
-          How To Train Your Dragon
+          How To Train Your Drake
         </div>
         <div style={{ fontSize: "11px", letterSpacing: "4px", opacity: 0.5, marginBottom: "32px" }}>SELECT YOUR RIDER</div>
 
@@ -1205,7 +1205,7 @@ export default function HTTYD_RPG() {
           HOW TO TRAIN
         </div>
         <div style={{ fontFamily: "'Cinzel Decorative', serif", fontSize: "clamp(32px,6vw,64px)", fontWeight: "900", textAlign: "center", animation: "glow 3s infinite 0.5s", color: "#4db8ff", marginBottom: "8px" }}>
-          YOUR DRAGON
+          YOUR DRAKE
         </div>
         <div style={{ fontSize: "16px", letterSpacing: "6px", opacity: 0.7, marginBottom: "50px", textTransform: "uppercase" }}>— The RPG —</div>
         <button className="btn-httyd" onClick={() => setScreen("name")}>Begin Your Journey</button>
@@ -1260,7 +1260,7 @@ export default function HTTYD_RPG() {
       }}>
         <style>{`@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&display=swap'); .starter-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:24px 18px;cursor:pointer;transition:all 0.2s;width:240px;text-align:center;} .starter-card:hover,.starter-card.sel{border-color:#4db8ff;box-shadow:0 0 20px #4db8ff33;transform:translateY(-4px);} .btn-httyd{background:linear-gradient(135deg,#c8860a,#8b5e00);border:2px solid #e8c060;color:#fff8e0;padding:12px 32px;font-size:16px;font-family:'Cinzel',serif;font-weight:600;border-radius:4px;cursor:pointer;letter-spacing:1px;transition:all 0.2s;} .btn-httyd:hover{transform:scale(1.04);box-shadow:0 0 15px #c8860a66;} .btn-httyd:disabled{opacity:0.4;cursor:not-allowed;transform:none;} input.httyd{background:rgba(255,255,255,0.05);border-bottom:2px solid #4db8ff;color:#e8d5b0;padding:8px 14px;font-size:16px;font-family:'Cinzel',serif;outline:none;width:200px;text-align:center;border-top:none;border-left:none;border-right:none;}`}</style>
         <div style={{ fontSize: "14px", letterSpacing: "4px", opacity: 0.5, marginBottom: "8px" }}>WELCOME, {playerName.toUpperCase()}</div>
-        <div style={{ fontSize: "clamp(22px,4vw,34px)", fontWeight: "900", marginBottom: "6px", textAlign: "center" }}>Choose Your Dragon</div>
+        <div style={{ fontSize: "clamp(22px,4vw,34px)", fontWeight: "900", marginBottom: "6px", textAlign: "center" }}>Choose Your Drake</div>
         <div style={{ opacity: 0.6, fontSize: "13px", marginBottom: "32px" }}>Your companion for life. Choose wisely.</div>
         <div style={{ display: "flex", gap: "16px", flexWrap: "wrap", justifyContent: "center", marginBottom: "32px" }}>
           {STARTER_DRAGONS.map(d => (
@@ -1297,7 +1297,7 @@ export default function HTTYD_RPG() {
           </div>
         )}
         <button className="btn-httyd" disabled={!selectedStarter} onClick={() => startGame(selectedStarter)}>
-          {selectedStarter ? `Begin with ${nameInput || selectedStarter.name}` : "Select a Dragon First"}
+          {selectedStarter ? `Begin with ${nameInput || selectedStarter.name}` : "Select a Drake First"}
         </button>
       </div>
     );
@@ -1366,7 +1366,7 @@ export default function HTTYD_RPG() {
         </div>
         {activeDragon && (
           <div style={{ textAlign: "right" }}>
-            <div style={{ fontSize: "11px", opacity: 0.5, letterSpacing: "1px" }}>ACTIVE DRAGON</div>
+            <div style={{ fontSize: "11px", opacity: 0.5, letterSpacing: "1px" }}>ACTIVE DRAKE</div>
             <div style={{ fontWeight: "700", fontSize: "13px" }}>{activeDragon.emoji} {activeDragon.nickname}</div>
             <div style={{ fontSize: "10px", color: "#4db8ff" }}>HP: {activeDragon.currentHP}/{activeDragon.maxHP || activeDragon.stats.hp}</div>
           </div>
@@ -1380,7 +1380,7 @@ export default function HTTYD_RPG() {
 
       {/* Tabs */}
       <div style={{ background: "rgba(0,0,0,0.4)", borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", overflowX: "auto" }}>
-        {["map", "quests", "dragons", "armor", "sanctuaries", "inventory", "hatchery", "log", ...(combat ? ["combat"] : [])].map(t => (
+        {["map", "quests", "drakes", "armor", "sanctuaries", "inventory", "hatchery", "log", ...(combat ? ["combat"] : [])].map(t => (
           <button key={t} className={`tab${tab === t ? " active" : ""}`} onClick={() => setTab(t)}>
             {t === "combat" ? <span className="combat-pulse">⚔️ Combat</span> : t.charAt(0).toUpperCase() + t.slice(1)}
           </button>
@@ -1425,7 +1425,7 @@ export default function HTTYD_RPG() {
             <div className="card" style={{ marginBottom: "12px", opacity: travelling ? 0.4 : 1, pointerEvents: travelling ? "none" : "auto" }}>
               <div style={{ fontSize: "11px", letterSpacing: "2px", opacity: 0.5, marginBottom: "10px" }}>ACTIONS</div>
               <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-                <button className="btn-sm success" onClick={ride}>🐉 Ride Dragon</button>
+                <button className="btn-sm success" onClick={ride}>🐉 Ride Drake</button>
                 <button className="btn-sm gold" onClick={heal}>💊 Heal (20g)</button>
                 <button className="btn-sm gold" onClick={buyEgg}>🥚 Buy Egg (30g)</button>
                 {!loc?.custom && !["berk","dragons_edge"].includes(currentLocation) && (
@@ -1440,7 +1440,7 @@ export default function HTTYD_RPG() {
             {/* Johann warning */}
             {loc?.johannWarning && (
               <div style={{ background: "rgba(245,158,11,0.08)", border: "1px solid rgba(245,158,11,0.35)", borderRadius: "6px", padding: "10px 14px", marginBottom: "12px", fontSize: "12px", color: "#f59e0b", lineHeight: "1.6" }}>
-                ⚠️ <strong>Warning:</strong> Trader Johann appears welcoming — but he's been secretly working with the Dragon Hunters all along. Talking to him is safe... until it isn't. Fight him to expose the traitor.
+                ⚠️ <strong>Warning:</strong> Trader Johann appears welcoming — but he's been secretly working with the Drake Hunters all along. Talking to him is safe... until it isn't. Fight him to expose the traitor.
               </div>
             )}
 
@@ -1512,10 +1512,10 @@ export default function HTTYD_RPG() {
         )}
 
         {/* DRAGONS TAB */}
-        {tab === "dragons" && (
+        {tab === "drakes" && (
           <div>
             <div style={{ display: "grid", gap: "12px" }}>
-              {dragons.map((d, idx) => (
+              {drakes.map((d, idx) => (
                 <div key={idx} className="card" style={{ border: idx === activeDragonIdx ? "1px solid #4db8ff66" : undefined }}>
                   <div style={{ display: "flex", gap: "12px", alignItems: "flex-start" }}>
                     <div style={{ flexShrink: 0, background: "rgba(0,0,0,0.3)", borderRadius: "8px", overflow: "hidden", border: `1px solid ${RARITY_COLORS[d.rarity] || "#9ca3af"}33` }}>
@@ -1564,7 +1564,7 @@ export default function HTTYD_RPG() {
                         </div>
                       </div>
 
-                      {/* Dragon XP / Level bar */}
+                      {/* Drake XP / Level bar */}
                       <div>
                         <div style={{ display: "flex", justifyContent: "space-between", fontSize: "10px", opacity: 0.6, marginBottom: "3px" }}>
                           <span>⭐ Level {d.level || 1} · 🎂 Age {d.age || 1}/38{(d.age || 1) >= 38 ? " · Elder" : ""}</span>
@@ -1581,10 +1581,10 @@ export default function HTTYD_RPG() {
                   </div>
                   <div style={{ display: "flex", gap: "8px", marginTop: "10px", flexWrap: "wrap" }}>
                     {idx !== activeDragonIdx && <button className="btn-sm" onClick={() => setActiveDragonIdx(idx)}>Set Active</button>}
-                    <RenameInline dragon={d} onRename={(name) => renameDragon(idx, name)} />
-                    {dragons.length > 1 && idx !== activeDragonIdx && (
+                    <RenameInline drake={d} onRename={(name) => renameDragon(idx, name)} />
+                    {drakes.length > 1 && idx !== activeDragonIdx && (
                       <button className="btn-sm" style={{ color: "#c084fc", borderColor: "rgba(192,132,252,0.3)", background: "rgba(192,132,252,0.05)" }}
-                        onClick={() => setModal({ type: "release_dragon", data: { dragonIdx: idx, dragon: d } })}>
+                        onClick={() => setModal({ type: "release_dragon", data: { dragonIdx: idx, drake: d } })}>
                         🕊️ Release
                       </button>
                     )}
@@ -1629,10 +1629,10 @@ export default function HTTYD_RPG() {
               </div>
             </div>
 
-            {/* Dragon Armor */}
+            {/* Drake Armor */}
             <div>
-              <div style={{ fontSize: "11px", letterSpacing: "3px", opacity: 0.5, marginBottom: "10px" }}>DRAGON ARMOUR</div>
-              {dragons.map((d, dIdx) => {
+              <div style={{ fontSize: "11px", letterSpacing: "3px", opacity: 0.5, marginBottom: "10px" }}>DRAKE ARMOUR</div>
+              {drakes.map((d, dIdx) => {
                 const armorId = equippedDragonArmor[dIdx];
                 const equipped = armorId ? DRAGON_ARMOR.find(a => a.id === armorId) : null;
                 return (
@@ -1681,7 +1681,7 @@ export default function HTTYD_RPG() {
         {tab === "sanctuaries" && (
           <div>
             <div style={{ fontSize: "13px", opacity: 0.7, lineHeight: "1.6", marginBottom: "16px" }}>
-              Protected areas where released dragons live free and safe from hunters. Release a dragon from the Dragons tab. They stay forever — but you can visit anytime.
+              Protected areas where released drakes live free and safe from hunters. Release a drake from the Drakes tab. They stay forever — but you can visit anytime.
             </div>
             <div style={{ display: "grid", gap: "14px" }}>
               {PROTECTED_AREAS.map(area => {
@@ -1701,7 +1701,7 @@ export default function HTTYD_RPG() {
                           <div style={{ display: "flex", gap: "6px", alignItems: "center" }}>
                             {locked && <span style={{ fontSize: "10px", color: "#f87171" }}>🔒 Lv{area.minLevel}</span>}
                             <span style={{ fontSize: "10px", color: isFull ? "#f59e0b" : "#4ade80", background: "rgba(255,255,255,0.05)", padding: "2px 6px", borderRadius: "2px" }}>
-                              {residents.length}/{area.capacity} dragons
+                              {residents.length}/{area.capacity} drakes
                             </span>
                           </div>
                         </div>
@@ -1738,15 +1738,15 @@ export default function HTTYD_RPG() {
 
                     {residents.length === 0 && !locked && (
                       <div style={{ fontSize: "11px", opacity: 0.4, marginBottom: "8px" }}>
-                        No dragons here yet. Release one from the Dragons tab.
+                        No drakes here yet. Release one from the Drakes tab.
                       </div>
                     )}
 
-                    {/* Release button shortcut if you have releasable dragons */}
-                    {!locked && !isFull && dragons.length > 1 && (
+                    {/* Release button shortcut if you have releasable drakes */}
+                    {!locked && !isFull && drakes.length > 1 && (
                       <button className="btn-sm" style={{ color: "#c084fc", borderColor: "rgba(192,132,252,0.3)", background: "rgba(192,132,252,0.05)", fontSize: "10px" }}
                         onClick={() => setModal({ type: "release_choose", data: { areaId: area.id, area } })}>
-                        🕊️ Release a Dragon Here
+                        🕊️ Release a Drake Here
                       </button>
                     )}
                     {isFull && <div style={{ fontSize: "10px", color: "#f59e0b", opacity: 0.8 }}>⚠️ This sanctuary is full.</div>}
@@ -1805,7 +1805,7 @@ export default function HTTYD_RPG() {
                         <div style={{ flex: 1 }}>
                           <span style={{ fontWeight: "600" }}>{a.name}</span>
                           {a.legendary && <span style={{ fontSize: "10px", color: "#f59e0b", marginLeft: "6px" }}>LEGENDARY</span>}
-                          <div style={{ fontSize: "10px", opacity: 0.5 }}>{isHA ? "Human Armour" : "Dragon Armour"}</div>
+                          <div style={{ fontSize: "10px", opacity: 0.5 }}>{isHA ? "Human Armour" : "Drake Armour"}</div>
                         </div>
                       </div>
                     );
@@ -1871,7 +1871,7 @@ export default function HTTYD_RPG() {
               <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "8px" }}>
                 <div>
                   <div style={{ fontWeight: "700", fontSize: "18px" }}>{combat.enemy.emoji} {combat.enemy.name}</div>
-                  <div style={{ fontSize: "11px", opacity: 0.6 }}>Dragon Hunter</div>
+                  <div style={{ fontSize: "11px", opacity: 0.6 }}>Drake Hunter</div>
                 </div>
                 <div style={{ textAlign: "right" }}>
                   <div style={{ color: "#f87171", fontWeight: "700" }}>{combat.enemyHP} / {combat.enemy.maxHp} HP</div>
@@ -1886,7 +1886,7 @@ export default function HTTYD_RPG() {
             <div style={{ display: "flex", gap: "8px", marginBottom: "12px", flexWrap: "wrap" }}>
               <button className="btn-sm danger" onClick={combatAttack}>⚔️ Attack</button>
               {activeDragon && activeDragon.currentHP > 0 && (
-                <button className="btn-sm success" onClick={dragonAttack}>🐉 Dragon Attack</button>
+                <button className="btn-sm success" onClick={dragonAttack}>🐉 Drake Attack</button>
               )}
               <button className="btn-sm" onClick={combatFlee}>🏃 Flee</button>
             </div>
@@ -2075,11 +2075,11 @@ export default function HTTYD_RPG() {
                   <div style={{ fontSize: "11px", color: "#f59e0b", letterSpacing: "1px", marginBottom: "6px" }}>🔧 GROTT'S TRANSLATION:</div>
                   <div style={{ fontSize: "13px", fontStyle: "italic", lineHeight: "1.6", opacity: 0.9 }}>"{modal.data.gobber}"</div>
                 </div>
-                {dragons.some(d => d.currentHP < (d.maxHP || d.stats.hp)) ? (
+                {drakes.some(d => d.currentHP < (d.maxHP || d.stats.hp)) ? (
                   <>
-                    <div style={{ fontSize: "12px", opacity: 0.7, marginBottom: "10px" }}>Moith can heal your injured dragons. (25g each)</div>
+                    <div style={{ fontSize: "12px", opacity: 0.7, marginBottom: "10px" }}>Moith can heal your injured drakes. (25g each)</div>
                     <div style={{ display: "flex", flexDirection: "column", gap: "6px", marginBottom: "12px" }}>
-                      {dragons.map((d, i) => d.currentHP < (d.maxHP || d.stats.hp) && (
+                      {drakes.map((d, i) => d.currentHP < (d.maxHP || d.stats.hp) && (
                         <button key={i} className="btn-sm success" onClick={() => gothiHealDragon(i)}>
                           {d.emoji} Heal {d.nickname} ({d.currentHP}/{d.maxHP || d.stats.hp} HP) — 25g
                         </button>
@@ -2087,7 +2087,7 @@ export default function HTTYD_RPG() {
                     </div>
                   </>
                 ) : (
-                  <div style={{ fontSize: "12px", color: "#4ade80", marginBottom: "12px" }}>✅ All your dragons are at full health!</div>
+                  <div style={{ fontSize: "12px", color: "#4ade80", marginBottom: "12px" }}>✅ All your drakes are at full health!</div>
                 )}
                 <button className="btn-sm" onClick={() => setModal(null)}>Leave</button>
               </>
@@ -2124,14 +2124,14 @@ export default function HTTYD_RPG() {
                     <DragonPortrait dragonId={modal.data.id} size={isTW ? 140 : 120} rarity={modal.data.rarity} />
                   </div>
                   <div style={{ color: RARITY_COLORS[modal.data.rarity] || "#9ca3af", fontSize: "13px", letterSpacing: "3px", marginBottom: "8px", fontWeight: isTW ? "700" : "400" }}>
-                    {modal.data.rarity.toUpperCase()} DRAGON
+                    {modal.data.rarity.toUpperCase()} DRAKE
                   </div>
                   <div style={{ fontWeight: "700", fontSize: isTW ? "26px" : "22px", marginBottom: "8px" }}>{modal.data.name} Hatched!</div>
                   <div style={{ fontSize: "13px", opacity: 0.7, marginBottom: "8px" }}>{modal.data.class} · ✨ {modal.data.ability}</div>
                   {modal.data.description && <div style={{ fontSize: "12px", opacity: 0.65, fontStyle: "italic", marginBottom: isTW ? "8px" : "16px", lineHeight: "1.6" }}>{modal.data.description}</div>}
                   {isTW && (
                     <div style={{ fontSize: "12px", color: "#f0f0ff", background: "rgba(240,240,255,0.06)", border: "1px solid rgba(240,240,255,0.2)", borderRadius: "6px", padding: "8px 12px", marginBottom: "12px", lineHeight: "1.6" }}>
-                      A fully evolved Titanwing — the apex of dragonkind. Fewer than one in two hundred riders ever see one hatch.
+                      A fully evolved Titanwing — the apex of drakekind. Fewer than one in two hundred riders ever see one hatch.
                     </div>
                   )}
                   <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: "6px", marginBottom: "16px" }}>
@@ -2142,23 +2142,23 @@ export default function HTTYD_RPG() {
                       </div>
                     ))}
                   </div>
-                  <div style={{ fontSize: "12px", opacity: 0.5, marginBottom: "16px" }}>Head to the Dragons tab to rename it.</div>
+                  <div style={{ fontSize: "12px", opacity: 0.5, marginBottom: "16px" }}>Head to the Drakes tab to rename it.</div>
                   <button className={`btn-sm${isTW ? "" : " success"}`} style={isTW ? { color: "#f0f0ff", borderColor: "rgba(240,240,255,0.4)", background: "rgba(240,240,255,0.06)" } : {}} onClick={() => setModal(null)}>
                     {isTW ? "✦ Incredible ✦" : "Wonderful!"}
                   </button>
                 </>
               );
             })()}
-            {/* Release dragon — pick sanctuary */}
+            {/* Release drake — pick sanctuary */}
             {modal.type === "release_dragon" && (() => {
-              const { dragonIdx, dragon } = modal.data;
+              const { dragonIdx, drake } = modal.data;
               return (
                 <>
-                  <div style={{ fontSize: "48px", marginBottom: "8px" }}>{dragon.emoji}</div>
-                  <div style={{ fontWeight: "700", fontSize: "18px", marginBottom: "4px" }}>Release {dragon.nickname}?</div>
-                  <div style={{ fontSize: "12px", color: RARITY_COLORS[dragon.rarity], marginBottom: "16px" }}>{dragon.rarity} · {dragon.class}</div>
+                  <div style={{ fontSize: "48px", marginBottom: "8px" }}>{drake.emoji}</div>
+                  <div style={{ fontWeight: "700", fontSize: "18px", marginBottom: "4px" }}>Release {drake.nickname}?</div>
+                  <div style={{ fontSize: "12px", color: RARITY_COLORS[drake.rarity], marginBottom: "16px" }}>{drake.rarity} · {drake.class}</div>
                   <div style={{ fontSize: "12px", opacity: 0.7, lineHeight: "1.6", marginBottom: "16px" }}>
-                    Choose a protected area. {dragon.nickname} will live there safely, forever. You'll be able to visit them anytime in the Sanctuaries tab.
+                    Choose a protected area. {drake.nickname} will live there safely, forever. You'll be able to visit them anytime in the Sanctuaries tab.
                   </div>
                   <div style={{ display: "grid", gap: "7px", marginBottom: "14px" }}>
                     {PROTECTED_AREAS.map(area => {
@@ -2184,21 +2184,21 @@ export default function HTTYD_RPG() {
               );
             })()}
 
-            {/* Release choose — pick dragon for a specific area */}
+            {/* Release choose — pick drake for a specific area */}
             {modal.type === "release_choose" && (() => {
               const { areaId, area } = modal.data;
-              const releasable = dragons.filter((_, i) => i !== activeDragonIdx);
+              const releasable = drakes.filter((_, i) => i !== activeDragonIdx);
               return (
                 <>
                   <div style={{ fontSize: "32px", marginBottom: "8px" }}>{area.emoji}</div>
                   <div style={{ fontWeight: "700", fontSize: "17px", marginBottom: "4px" }}>{area.name}</div>
-                  <div style={{ fontSize: "12px", opacity: 0.6, marginBottom: "16px" }}>Choose a dragon to release here:</div>
+                  <div style={{ fontSize: "12px", opacity: 0.6, marginBottom: "16px" }}>Choose a drake to release here:</div>
                   {releasable.length === 0 ? (
-                    <div style={{ opacity: 0.5, fontSize: "13px", marginBottom: "14px" }}>No releasable dragons. Your active dragon can't be released.</div>
+                    <div style={{ opacity: 0.5, fontSize: "13px", marginBottom: "14px" }}>No releasable drakes. Your active drake can't be released.</div>
                   ) : (
                     <div style={{ display: "grid", gap: "7px", marginBottom: "14px" }}>
                       {releasable.map((d) => {
-                        const idx = dragons.indexOf(d);
+                        const idx = drakes.indexOf(d);
                         return (
                           <button key={idx}
                             style={{ background: "rgba(192,132,252,0.05)", border: "1px solid rgba(192,132,252,0.25)", borderRadius: "6px", padding: "9px 12px", cursor: "pointer", display: "flex", alignItems: "center", gap: "10px", color: "#e8d5b0", fontFamily: "'Cinzel',serif", fontSize: "12px" }}
@@ -2248,7 +2248,7 @@ export default function HTTYD_RPG() {
                 <div style={{ fontSize: "40px", marginBottom: "12px" }}>⚠️</div>
                 <div style={{ fontWeight: "700", fontSize: "18px", marginBottom: "8px" }}>Restart Journey?</div>
                 <div style={{ fontSize: "13px", opacity: 0.7, lineHeight: "1.7", marginBottom: "20px" }}>
-                  This will permanently delete all progress for <strong>{playerName}</strong> — dragons, items, quests, and gold. Your rider slot is kept but the save is wiped.
+                  This will permanently delete all progress for <strong>{playerName}</strong> — drakes, items, quests, and gold. Your rider slot is kept but the save is wiped.
                   <br /><br />This cannot be undone.
                 </div>
                 <div style={{ display: "flex", gap: "10px", justifyContent: "center" }}>
@@ -2350,13 +2350,13 @@ function WorldMap({ locations, currentLocation, currentBase, playerLevel, onExpl
   const [hovered, setHovered] = useState(null);
   const W = 500, H = 340;
 
-  // Flying dragon position
+  // Flying drake position
   const flyingDragon = (() => {
     if (!travelling) return null;
     const fromPos = ISLAND_POSITIONS[travelling.from] || { x: 250, y: 170 };
     const toPos = ISLAND_POSITIONS[travelling.to] || { x: 250, y: 170 };
     const t = travelling.progress;
-    // Quadratic bezier arc — dragon arcs upward mid-flight
+    // Quadratic bezier arc — drake arcs upward mid-flight
     const mx = (fromPos.x + toPos.x) / 2;
     const my = (fromPos.y + toPos.y) / 2 - 40; // arc height
     const bx = (1-t)*(1-t)*fromPos.x + 2*(1-t)*t*mx + t*t*toPos.x;
@@ -2564,7 +2564,7 @@ function WorldMap({ locations, currentLocation, currentBase, playerLevel, onExpl
           <circle cx="0" cy="0" r="6" fill="none" stroke="#e8d5b0" strokeWidth="0.6"/>
         </g>
 
-        {/* Flying dragon animation */}
+        {/* Flying drake animation */}
         {flyingDragon && (
           <g>
             {/* Arc trail path */}
@@ -2575,12 +2575,12 @@ function WorldMap({ locations, currentLocation, currentBase, playerLevel, onExpl
               strokeWidth="1.5"
               strokeDasharray="4 4"
             />
-            {/* Glow halo under dragon */}
+            {/* Glow halo under drake */}
             <circle cx={flyingDragon.x} cy={flyingDragon.y} r="10"
               fill="rgba(192,132,252,0.15)"
               filter="url(#pulseGlow)"
             />
-            {/* Dragon emoji */}
+            {/* Drake emoji */}
             <text
               x={flyingDragon.x}
               y={flyingDragon.y + 5}
@@ -2624,7 +2624,7 @@ function WorldMap({ locations, currentLocation, currentBase, playerLevel, onExpl
 }
 
 // ============================================================
-// DRAGON PORTRAIT — SVG illustrated dragon per species
+// DRAGON PORTRAIT — SVG illustrated drake per species
 // ============================================================
 function DragonPortrait({ dragonId, size = 80, rarity }) {
   const rc = RARITY_COLORS[rarity] || "#9ca3af";
@@ -3538,7 +3538,7 @@ function DragonPortrait({ dragonId, size = 80, rarity }) {
 
   };
 
-  // Generic fallback for unlisted dragons
+  // Generic fallback for unlisted drakes
   const fallback = (id) => (
     <g>
       {defs(id)}
@@ -3565,7 +3565,7 @@ function DragonPortrait({ dragonId, size = 80, rarity }) {
   const renderFn = portraits[key] || portraits[dragonId] || fallback;
   const id = (dragonId || "fb").replace(/[^a-zA-Z0-9]/g, "_");
 
-  // Prefer original raster art when present in src/assets/dragons/;
+  // Prefer original raster art when present in src/assets/drakes/;
   // otherwise fall back to the built-in SVG portrait below.
   const rasterSrc = DRAGON_IMAGES[dragonId] || DRAGON_IMAGES[key];
   if (rasterSrc) {
@@ -3638,11 +3638,11 @@ function HealParticles({ particles }) {
 // ============================================================
 // RENAME INLINE
 // ============================================================
-function RenameInline({ dragon, onRename }) {
+function RenameInline({ drake, onRename }) {
   const [editing, setEditing] = useState(false);
-  const [val, setVal] = useState(dragon.nickname);
+  const [val, setVal] = useState(drake.nickname);
   if (!editing) return (
-    <button className="btn-sm" onClick={() => { setVal(dragon.nickname); setEditing(true); }}>✏️ Rename</button>
+    <button className="btn-sm" onClick={() => { setVal(drake.nickname); setEditing(true); }}>✏️ Rename</button>
   );
   return (
     <div style={{ display: "flex", gap: "6px" }}>
