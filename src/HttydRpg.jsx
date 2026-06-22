@@ -500,6 +500,7 @@ export default function HTTYD_RPG() {
   const [tab, setTab] = useState("map");
   const [modal, setModal] = useState(null);
   const [tutorialStep, setTutorialStep] = useState(0);
+  const [tutorialSeen, setTutorialSeen] = useState(false); // false until the starter tutorial has been shown for this rider
   const [combat, setCombat] = useState(null);
   const [nameInput, setNameInput] = useState("");
   const [selectedStarter, setSelectedStarter] = useState(null);
@@ -545,6 +546,7 @@ export default function HTTYD_RPG() {
         dragons, activeDragonIdx, inventory, equippedWeapon,
         currentBase, currentLocation, eggs, log: log.slice(-30),
         customIslands, questLog, releasedDragons, equippedHumanArmor, equippedDragonArmor,
+        tutorialSeen,
       };
       window.storage.set(`httyd_save_${activeSlot}`, JSON.stringify(saveData)).catch(() => {});
       // Update account summary
@@ -581,6 +583,7 @@ export default function HTTYD_RPG() {
         setReleasedDragons(s.releasedDragons || {});
         setEquippedHumanArmor(s.equippedHumanArmor || null);
         setEquippedDragonArmor(s.equippedDragonArmor || {});
+        setTutorialSeen(s.tutorialSeen ?? true); // existing/older saves: treat as already seen (don't nag returning riders)
         setTab("map");
         setModal(null);
         setCombat(null);
@@ -615,7 +618,7 @@ export default function HTTYD_RPG() {
     setPlayerHP(100); setPlayerMaxHP(100); setPlayerGold(50);
     setDragons([]); setActiveDragonIdx(0); setInventory([]); setEquippedWeapon(null);
     setCurrentBase("berk"); setCurrentLocation("berk"); setEggs([]); setLog([]);
-    setCustomIslands([]); setQuestLog({}); setReleasedDragons({}); setEquippedHumanArmor(null); setEquippedDragonArmor({}); setHealParticles([]); setTab("map"); setModal(null);
+    setCustomIslands([]); setQuestLog({}); setReleasedDragons({}); setEquippedHumanArmor(null); setEquippedDragonArmor({}); setHealParticles([]); setTutorialSeen(false); setTab("map"); setModal(null);
     setCombat(null); setTravelling(null); setNameInput(""); setSelectedStarter(null);
   }
 
@@ -633,6 +636,16 @@ export default function HTTYD_RPG() {
   useEffect(() => {
     if (logRef.current) logRef.current.scrollTop = logRef.current.scrollHeight;
   }, [log]);
+
+  // Starter tutorial: auto-opens once for every new rider on entering the game
+  // (never for loaded existing saves). Marked seen immediately so it can't nag.
+  useEffect(() => {
+    if (screen === "game" && !tutorialSeen) {
+      setTutorialStep(0);
+      setModal({ type: "tutorial" });
+      setTutorialSeen(true);
+    }
+  }, [screen, tutorialSeen]);
 
   function addLog(msg, type = "info") {
     setLog(prev => [...prev.slice(-60), { msg, type, id: Date.now() + Math.random() }]);
@@ -763,9 +776,7 @@ export default function HTTYD_RPG() {
     addLog(`🐉 ${dragon.nickname} the ${dragon.name} hatched! Your adventure begins.`, "success");
     addLog(`📍 You start at Holtgard. Talk to Rurik, explore, or find your first fight.`, "info");
     setScreen("game");
-    // First-time starter tutorial (new riders only; not shown on load).
-    setTutorialStep(0);
-    setModal({ type: "tutorial" });
+    // The starter tutorial auto-opens via the effect above (new rider → tutorialSeen=false).
   }
 
   function hatchEgg(idx) {
