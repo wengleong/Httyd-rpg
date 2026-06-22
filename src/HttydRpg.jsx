@@ -64,7 +64,7 @@ const EGG_DRAGONS = [
   { id: "sparkmaw",   name: "Sparkmaw",   emoji: "⚡", rarity: "Rare", chance: 4, stats: { hp: 95,  attack: 70, defense: 45, speed: 80 }, ability: "Lightning Charge", class: "Storm Class",  description: "Crackles with static and rides storm fronts for the sheer joy of it." },
   { id: "galecrest",  name: "Galecrest",  emoji: "🌪️", rarity: "Rare", chance: 4, stats: { hp: 105, attack: 60, defense: 50, speed: 75 }, ability: "Wing Cyclone",     class: "Razor Class",   description: "Beats its broad wings to whip up dust devils and knock foes off their feet." },
   { id: "gloamglow",  name: "Gloamglow",  emoji: "👻", rarity: "Rare", chance: 4, stats: { hp: 85,  attack: 65, defense: 40, speed: 90 }, ability: "Glowing Mist",     class: "Mystic Class", description: "Drifts on a tide of bioluminescent mist; its soft glow soothes frightened drakes." },
-  { id: "emberprism", name: "Emberprism", emoji: "🔴", rarity: "Rare", chance: 4, stats: { hp: 90,  attack: 72, defense: 38, speed: 78 }, ability: "Multi-Fire",       class: "Ember Class",  description: "A clever mimic that learns new kinds of fire by watching other drakes." },
+  { id: "prismscale", name: "Prismscale", emoji: "🔴", rarity: "Rare", chance: 4, stats: { hp: 90,  attack: 72, defense: 38, speed: 78 }, ability: "Multi-Fire",       class: "Ember Class",  description: "A clever mimic that learns new kinds of fire by watching other drakes — the lesser cousin of the Titan Prismscale." },
   { id: "quakehide",  name: "Quakehide",  emoji: "🌍", rarity: "Rare", chance: 4, stats: { hp: 130, attack: 60, defense: 80, speed: 30 }, ability: "Rockslide Roll",   class: "Crag Class", description: "Curls into a boulder and rolls downhill with the force of a small avalanche." },
   // UNCOMMON
   { id: "bladecoil", name: "Bladecoil", emoji: "🔪", rarity: "Uncommon", chance: 5, stats: { hp: 85,  attack: 65, defense: 55, speed: 70 }, ability: "Tail Slash",      class: "Razor Class",   description: "Its tail is a coil of razor scales it sheds and regrows like polished steel." },
@@ -189,6 +189,46 @@ const RARITY_COLORS = {
   Epic: "#a855f7",
   Legendary: "#f59e0b",
   Titanwing: "#f0f0ff",
+};
+
+// Each drake's signature colour + colour-name (shown in the Drakes tab).
+const DRAKE_COLORS = {
+  cindermaw:     { hex: "#C77B30", name: "Molten Amber" },
+  quilldart:     { hex: "#2E8BC0", name: "Azure Sky" },
+  pyrewing:      { hex: "#C0392B", name: "Pyre Crimson" },
+  tw_voidwing:   { hex: "#1C2540", name: "Midnight Indigo" },
+  tw_glaciarch:  { hex: "#9FD8E6", name: "Glacier Cyan" },
+  tw_skydancer:  { hex: "#2E7D8F", name: "Tempest Teal" },
+  tw_magmaback:  { hex: "#8A5A2B", name: "Magma Bronze" },
+  tw_stormfang:  { hex: "#7A4FB5", name: "Storm Violet" },
+  tw_cinderwyrm: { hex: "#E2552B", name: "Cinder Orange" },
+  tw_prismscale: { hex: "#C77DD8", name: "Prism Opal" },
+  voidwing:      { hex: "#20283D", name: "Void Black" },
+  dawnwing:      { hex: "#EDE6DA", name: "Dawn Pearl" },
+  frostmonarch:  { hex: "#6FA8C7", name: "Frost Blue" },
+  gloomborer:    { hex: "#6B7280", name: "Gloom Slate" },
+  venomstinger:  { hex: "#9E2B2B", name: "Venom Red" },
+  tideshell:     { hex: "#2C6E8F", name: "Tideshell Teal" },
+  sparkmaw:      { hex: "#6D4FB0", name: "Spark Amethyst" },
+  galecrest:     { hex: "#5BA3D0", name: "Gale Sky" },
+  gloamglow:     { hex: "#5FE3D6", name: "Gloam Glow" },
+  prismscale:    { hex: "#D86C4A", name: "Prism Ember" },
+  quakehide:     { hex: "#7E6A4F", name: "Quake Umber" },
+  bladecoil:     { hex: "#B8C0C8", name: "Razor Silver" },
+  flarejet:      { hex: "#D2691E", name: "Flare Sienna" },
+  cyclewing:     { hex: "#E07B39", name: "Cyclone Ochre" },
+  lavabelly:     { hex: "#4A4A4A", name: "Lava Charcoal" },
+  ironhide:      { hex: "#8C8C94", name: "Ironhide Grey" },
+  lullabel:      { hex: "#B79CD8", name: "Lullaby Lilac" },
+  pebblewing:    { hex: "#B89A6E", name: "Pebble Tan" },
+  spritewing:    { hex: "#3FA9C9", name: "Sprite Cyan" },
+  flicker:       { hex: "#E25822", name: "Flicker Flame" },
+  brookskimmer:  { hex: "#3FB6A8", name: "Brook Teal" },
+  twinhiss:      { hex: "#6BAE5A", name: "Twin Green" },
+  moodscale:     { hex: "#C77FB3", name: "Mood Mauve" },
+  tinywing:      { hex: "#E08A2B", name: "Tiny Tangerine" },
+  dunewraith:    { hex: "#C2A878", name: "Dune Sand" },
+  bloomtrap:     { hex: "#E69FC0", name: "Bloom Pink" },
 };
 
 // Moith writes in runes — Grott translates (badly)
@@ -1477,7 +1517,15 @@ export default function HTTYD_RPG() {
                         <span style={{ fontSize: "10px", color: RARITY_COLORS[d.rarity] || "#9ca3af", background: "rgba(255,255,255,0.05)", padding: "2px 6px", borderRadius: "2px" }}>{d.rarity}</span>
                         {idx === activeDragonIdx && <span style={{ fontSize: "10px", color: "#4db8ff" }}>ACTIVE</span>}
                       </div>
-                      <div style={{ fontSize: "11px", color: "#4db8ff", marginBottom: "8px" }}>{d.class}</div>
+                      <div style={{ fontSize: "11px", color: "#4db8ff", marginBottom: "8px", display: "flex", alignItems: "center", gap: "6px", flexWrap: "wrap" }}>
+                        <span>{d.class}</span>
+                        {DRAKE_COLORS[d.id] && (
+                          <span style={{ display: "inline-flex", alignItems: "center", gap: "4px", color: "#e8d5b0", opacity: 0.85 }}>
+                            <span style={{ width: "10px", height: "10px", borderRadius: "50%", background: DRAKE_COLORS[d.id].hex, border: "1px solid rgba(255,255,255,0.35)", display: "inline-block" }} />
+                            {DRAKE_COLORS[d.id].name}
+                          </span>
+                        )}
+                      </div>
                       <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "4px", marginBottom: "10px" }}>
                         {Object.entries(d.stats).map(([k, v]) => (
                           <div key={k} style={{ background: "rgba(255,255,255,0.04)", borderRadius: "3px", padding: "4px", textAlign: "center", fontSize: "10px" }}>
