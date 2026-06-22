@@ -132,6 +132,7 @@ const LOCATIONS = [
   { id: "viggos_base",      name: "Viggo's Stronghold",          emoji: "💀", minLevel: 30, description: "The Drake Hunter fortress. Viggo commands here.",                             characters: ["Viggo", "Krogan", "Ryker"], enemies: ["Viggo's Elite Guard", "Krogan's Berserker", "Viggo Grimborn", "Ryker Grimborn"] },
   { id: "johanns_ship",     name: "Johann's Trading Post",       emoji: "⚓", minLevel: 8,  description: "A travelling merchant vessel. Johann seems friendly... at first. Watch your back.", characters: ["Johann"], enemies: ["Johann's Hired Thug", "Trader Johann (Traitor)"], johannWarning: true },
   { id: "rykers_outpost",   name: "Ryker's Outpost",             emoji: "💢", minLevel: 18, description: "Ryker Grimborn's brutal operations base. Viggo's enforcer runs this place with an iron fist.", characters: ["Ryker"], enemies: ["Drake Hunter Warrior", "Ryker Grimborn"] },
+  { id: "krogans_roost",    name: "Krogan's Roost",              emoji: "🦅", minLevel: 22, description: "A volcanic crater-isle where Krogan breeds war-drakes in caged clutches. The air reeks of ash and cruelty. Free the drakes — and bring Krogan down.", characters: ["Krogan"], enemies: ["Krogan's Berserker", "Drake Hunter Warrior", "Krogan"] },
 ];
 
 const CHARACTERS = {
@@ -161,6 +162,7 @@ const ENEMIES = [
   { id: "viggo_guard",     name: "Viggo's Elite Guard",     emoji: "🛡️", hp: 120, attack: 35, defense: 28, xp: 100, gold: 65,  loot: ["sword", "viggos_sword_1", "plate_armor", "full_dragon_armor"] },
   { id: "viggo_grimborn",  name: "Viggo Grimborn",          emoji: "♟️", hp: 200, attack: 45, defense: 35, xp: 500, gold: 200, loot: ["viggos_sword_2", "dragon_blade", "dragon_scale_mail", "dragonite_plating"] },
   { id: "krogans_berserker",name:"Krogan's Berserker",      emoji: "🔥", hp: 140, attack: 40, defense: 25, xp: 120, gold: 70,  loot: ["krogans_weapon", "plate_armor", "iron_scale_plates"] },
+  { id: "krogan",          name: "Krogan",                  emoji: "🦅", hp: 220, attack: 48, defense: 32, xp: 600, gold: 250, loot: ["krogans_weapon", "viggos_sword_2", "dragon_scale_mail", "dragonite_plating"] },
   { id: "snow_wraith",     name: "Snow Wraith",             emoji: "❄️", hp: 90,  attack: 28, defense: 18, xp: 60,  gold: 40,  loot: ["chain_mail"] },
   { id: "screaming_death", name: "Screaming Death",         emoji: "💥", hp: 180, attack: 42, defense: 30, xp: 300, gold: 120, loot: ["dragon_blade", "full_dragon_armor"] },
   { id: "ryker_grimborn",  name: "Ryker Grimborn",          emoji: "💢", hp: 170, attack: 42, defense: 30, xp: 400, gold: 180, loot: ["double_axe", "viggos_sword_1", "dragonite_plating"] },
@@ -2313,6 +2315,7 @@ const ISLAND_POSITIONS = {
   viggos_base:     { x: 460, y: 295, r: 26 },
   johanns_ship:    { x: 200, y:  95, r: 16 },
   rykers_outpost:  { x: 320, y: 310, r: 18 },
+  krogans_roost:   { x: 420, y: 205, r: 20 },
 };
 
 // Colour theme per island
@@ -2327,6 +2330,7 @@ const ISLAND_COLORS = {
   viggos_base:     { fill: "#2a0a0a", stroke: "#ef4444" },
   johanns_ship:    { fill: "#2a2a1a", stroke: "#d97706" },
   rykers_outpost:  { fill: "#3a1a0a", stroke: "#ea580c" },
+  krogans_roost:   { fill: "#3a1505", stroke: "#f97316" },
 };
 
 function IslandShape({ id, x, y, r }) {
@@ -2372,6 +2376,7 @@ function WorldMap({ locations, currentLocation, currentBase, playerLevel, onExpl
     ["dragons_edge","dramillion_island"], ["berserker_island","rykers_outpost"],
     ["defenders_wing","viggos_base"], ["rykers_outpost","viggos_base"],
     ["dark_deep","viggos_base"],
+    ["dramillion_island","krogans_roost"], ["krogans_roost","viggos_base"],
   ];
 
   return (
