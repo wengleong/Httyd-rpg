@@ -685,10 +685,12 @@ export default function HTTYD_RPG() {
         const defGain = 2;
         const spdGain = 2;
         const newMaxHP = (d.maxHP || d.stats.hp) + hpGain;
-        addLog(`🐉 ${d.nickname} reached Level ${newLevel}! +${hpGain} HP, +${atkGain} ATK, +${defGain} DEF, +${spdGain} SPD`, "success");
+        const newAge = Math.min(38, (d.age || 1) + 1); // drakes grow older as they grow stronger (max 38)
+        addLog(`🐉 ${d.nickname} reached Level ${newLevel}! +${hpGain} HP, +${atkGain} ATK, +${defGain} DEF, +${spdGain} SPD${newAge !== (d.age || 1) ? ` · grew to age ${newAge}/38` : ""}`, "success");
         return {
           ...d,
           level: newLevel,
+          age: newAge,
           xp: newXP - needed,
           maxHP: newMaxHP,
           currentHP: Math.min(d.currentHP + hpGain, newMaxHP),
@@ -711,6 +713,7 @@ export default function HTTYD_RPG() {
       nickname: nameInput.trim() || starterDragon.name,
       level: 1,
       xp: 0,
+      age: 1,
       maxHP: starterDragon.stats.hp,
       currentHP: starterDragon.stats.hp,
     };
@@ -739,12 +742,16 @@ export default function HTTYD_RPG() {
       nickname: hatched.name,
       level: 1,
       xp: 0,
+      age: 1,
       maxHP: hatched.stats.hp,
       currentHP: hatched.stats.hp,
     };
     setEggs(prev => prev.filter((_, i) => i !== idx));
     setDragons(prev => [...prev, newDragon]);
+    const hatchXp = { Common: 10, Uncommon: 20, Rare: 35, Epic: 60, Legendary: 100, Titanwing: 200 }[hatched.rarity] || 10;
     addLog(`🥚 The egg hatched! You got a ${hatched.rarity} ${hatched.emoji} ${hatched.name}!`, (hatched.rarity === "Titanwing" || hatched.rarity === "Legendary" || hatched.rarity === "Epic") ? "legendary" : "success");
+    gainXP(hatchXp);
+    addLog(`✨ Bonding with your new drake earned +${hatchXp} XP!`, "success");
     setModal({ type: "hatched", data: newDragon });
   }
 
@@ -1501,7 +1508,7 @@ export default function HTTYD_RPG() {
                       {/* Dragon XP / Level bar */}
                       <div>
                         <div style={{ display: "flex", justifyContent: "space-between", fontSize: "10px", opacity: 0.6, marginBottom: "3px" }}>
-                          <span>⭐ Level {d.level || 1}</span>
+                          <span>⭐ Level {d.level || 1} · 🎂 Age {d.age || 1}/38{(d.age || 1) >= 38 ? " · Elder" : ""}</span>
                           <span>{d.xp || 0}/{dragonXpForLevel(d.level || 1)} XP</span>
                         </div>
                         <div className="progress-bar">
