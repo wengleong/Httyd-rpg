@@ -426,6 +426,16 @@ const PROTECTED_AREAS = [
   },
 ];
 
+// ── STARTER TUTORIAL ──
+const TUTORIAL_STEPS = [
+  { emoji: "🐉", title: "Welcome to the Sundered Reach", body: "You're a Bondrider — partner to a wild drake. Together you'll explore the archipelago, push back the drake-poachers of the Reaving, and grow your bond." },
+  { emoji: "🗺️", title: "Explore the Map", body: "The Map tab is your hub. Tap an island to fly there — tougher isles unlock as you level up. Some are safe havens; others are crawling with trouble." },
+  { emoji: "⚔️", title: "Battle", body: "Spot an enemy and strike with your weapon, or unleash your drake's special attack. Keep an eye on both your HP and your drake's — heal or flee if a fight turns." },
+  { emoji: "📜", title: "Take on Quests", body: "Accept quests in the Quests tab. Objectives track automatically as you fight and travel — when you accept one, you'll jump straight to the map to go do it." },
+  { emoji: "🥚", title: "Hatch More Drakes", body: "Buy mystery eggs and hatch them in the Hatchery — anything from a common drake to a one-in-two-hundred Titan. Manage your roster in the Drakes tab." },
+  { emoji: "✨", title: "You're Ready", body: "Your progress saves automatically. Reopen this guide anytime from Settings (⚙️). Now — go ride!" },
+];
+
 export default function HTTYD_RPG() {
   const [screen, setScreen] = useState("accounts"); // accounts | intro | name | starter | game
   const [accounts, setAccounts] = useState([]); // [{slot, name, level, dragonName, dragonEmoji, lastSaved}]
@@ -449,6 +459,7 @@ export default function HTTYD_RPG() {
   const [log, setLog] = useState([]);
   const [tab, setTab] = useState("map");
   const [modal, setModal] = useState(null);
+  const [tutorialStep, setTutorialStep] = useState(0);
   const [combat, setCombat] = useState(null);
   const [nameInput, setNameInput] = useState("");
   const [selectedStarter, setSelectedStarter] = useState(null);
@@ -596,6 +607,7 @@ export default function HTTYD_RPG() {
       [questId]: { status: QUEST_STATUS.ACTIVE, objectives: q.objectives.map(o => ({ ...o, progress: 0 })) }
     }));
     addLog(`📜 Quest accepted: "${q.title}" — ${q.objectives.map(o => o.label).join(", ")}`, "success");
+    setTab("map"); // jump to the map so the player can head out and complete it
   }
 
   function advanceQuestObjective(type, value) {
@@ -708,6 +720,9 @@ export default function HTTYD_RPG() {
     addLog(`🐉 ${dragon.nickname} the ${dragon.name} hatched! Your adventure begins.`, "success");
     addLog(`📍 You start at Holtgard. Talk to Rurik, explore, or find your first fight.`, "info");
     setScreen("game");
+    // First-time starter tutorial (new riders only; not shown on load).
+    setTutorialStep(0);
+    setModal({ type: "tutorial" });
   }
 
   function hatchEgg(idx) {
@@ -2149,6 +2164,9 @@ export default function HTTYD_RPG() {
                   ✅ Progress saves automatically as you play.
                 </div>
                 <div style={{ display: "grid", gap: "10px", marginBottom: "16px" }}>
+                  <button className="btn-sm" onClick={() => { setTutorialStep(0); setModal({ type: "tutorial" }); }}>
+                    📖 How to Play
+                  </button>
                   <button className="btn-sm" onClick={() => { setModal(null); setScreen("accounts"); }}>
                     👥 Switch Rider (Account Select)
                   </button>
@@ -2173,6 +2191,39 @@ export default function HTTYD_RPG() {
                 </div>
               </>
             )}
+            {modal.type === "tutorial" && (() => {
+              const step = TUTORIAL_STEPS[tutorialStep] || TUTORIAL_STEPS[0];
+              const isLast = tutorialStep >= TUTORIAL_STEPS.length - 1;
+              return (
+                <>
+                  <div style={{ fontSize: "11px", color: "#4db8ff", letterSpacing: "2px", marginBottom: "10px" }}>
+                    HOW TO PLAY · {tutorialStep + 1}/{TUTORIAL_STEPS.length}
+                  </div>
+                  <div style={{ fontSize: "48px", marginBottom: "10px" }}>{step.emoji}</div>
+                  <div style={{ fontWeight: "700", fontSize: "19px", marginBottom: "12px" }}>{step.title}</div>
+                  <div style={{ fontSize: "14px", opacity: 0.85, lineHeight: "1.7", marginBottom: "20px" }}>{step.body}</div>
+                  {/* step dots */}
+                  <div style={{ display: "flex", gap: "5px", justifyContent: "center", marginBottom: "16px" }}>
+                    {TUTORIAL_STEPS.map((_, i) => (
+                      <span key={i} style={{ width: "7px", height: "7px", borderRadius: "50%", background: i === tutorialStep ? "#4db8ff" : "rgba(255,255,255,0.2)" }} />
+                    ))}
+                  </div>
+                  <div style={{ display: "flex", gap: "8px", justifyContent: "center", alignItems: "center" }}>
+                    {tutorialStep > 0 && (
+                      <button className="btn-sm" onClick={() => setTutorialStep(s => Math.max(0, s - 1))}>← Back</button>
+                    )}
+                    {!isLast ? (
+                      <button className="btn-sm success" onClick={() => setTutorialStep(s => s + 1)}>Next →</button>
+                    ) : (
+                      <button className="btn-sm success" onClick={() => setModal(null)}>Start Playing →</button>
+                    )}
+                    {!isLast && (
+                      <button className="btn-sm" style={{ opacity: 0.6 }} onClick={() => setModal(null)}>Skip</button>
+                    )}
+                  </div>
+                </>
+              );
+            })()}
           </div>
         </div>
       )}
