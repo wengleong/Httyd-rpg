@@ -405,6 +405,22 @@ const QUESTS = [
     rewardText: "+1000 XP, +500g, Krogan's Weapon",
     flavour: "\"You should never have come here, rider. ...Then again, perhaps I always knew it would end this way.\" — Viggo",
   },
+  {
+    id: "krogan_takedown",
+    title: "The Beastmaster's Roost",
+    giver: "Rurik",
+    giverEmoji: "🦾",
+    location: "dragons_edge",
+    minLevel: 22,
+    description: "Krogan breeds Titan Flarejets in caged clutches to sell to the Reaving. Storm his roost, free the drakes, and bring down Krogan and the titan he rides.",
+    objectives: [
+      { id: "visit_roost", label: "Travel to Krogan's Roost", type: "visit", target: "krogans_roost", count: 1, progress: 0 },
+      { id: "kill_krogan", label: "Defeat Krogan", type: "kill", target: "Krogan", count: 1, progress: 0 },
+    ],
+    reward: { xp: 600, gold: 300, item: "krogans_weapon" },
+    rewardText: "+600 XP, +300g, Krogan's Weapon",
+    flavour: "\"His drakes will fly free — or no one flies at all.\" — Rurik",
+  },
 ];
 
 const QUEST_STATUS = { AVAILABLE: "available", ACTIVE: "active", COMPLETE: "complete" };
